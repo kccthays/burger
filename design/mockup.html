@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Ofício — Design Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--carvao:#0F110E;--carvao2:#171A15;--mata:#17332A;--mata2:#204536;--lima:#D6F23A;--osso:#F3F3EE;--cinza:#8C9188;--linha:rgba(243,243,238,.14);
+--disp:'Fraunces',serif;--sans:'Instrument Sans',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
+.board-title{font:600 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#b9bdb4;margin:56px 0 14px}
+.board-title b{color:var(--lima)}
+.frame{width:1440px;position:relative;overflow:hidden;background:var(--carvao);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.note{position:absolute;font:500 12px/1.4 var(--sans);background:var(--lima);color:#111;padding:6px 10px;max-width:260px;z-index:50}
+/* NAV */
+.nav{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:28px 56px;z-index:20}
+.logo{font:italic 600 30px var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1;letter-spacing:-.02em}
+.logo small{font:500 10px var(--sans);letter-spacing:.3em;text-transform:uppercase;display:block;color:var(--cinza);font-style:normal;margin-top:-2px}
+.nav ul{display:flex;gap:36px;list-style:none;font:500 14px var(--sans);letter-spacing:.04em}
+.nav ul li{opacity:.8}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--lima);color:#0F110E;font:700 15px var(--sans);letter-spacing:.02em;padding:18px 26px;text-transform:uppercase}
+.btn .arr{display:inline-block;width:26px;height:26px;border:2px solid #0F110E;border-radius:50%;text-align:center;line-height:21px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--osso);border:1px solid var(--linha)}
+.cartpill{display:flex;align-items:center;gap:10px;font:600 14px var(--sans);border:1px solid var(--linha);padding:12px 18px}
+.cartpill i{font-style:normal;background:var(--lima);color:#111;width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+/* HERO */
+.hero{height:900px;position:relative}
+.giant{position:absolute;left:0;right:0;text-align:center;font:italic 800 360px/0.8 var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;letter-spacing:-.05em;color:var(--mata2);top:250px;white-space:nowrap}
+.stage{position:absolute;left:50%;top:0;width:440px;height:900px;transform:translateX(-50%)}
+.stage svg{position:absolute;left:20px;width:400px;height:auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.45))}
+.shadow{position:absolute;left:50%;bottom:118px;width:420px;height:40px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent);}
+.hero-copy{position:absolute;left:56px;bottom:72px;width:380px}
+.eyebrow{font:600 12px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--lima);margin-bottom:16px;display:flex;gap:10px;align-items:center}
+.eyebrow:before{content:"";width:28px;height:1px;background:var(--lima)}
+.hero-copy h1{font:400 46px/1.02 var(--disp);font-variation-settings:'SOFT' 50;letter-spacing:-.02em;margin-bottom:18px}
+.hero-copy h1 em{color:var(--lima)}
+.hero-copy p{font:400 16px/1.55 var(--sans);color:#c7cbc2;margin-bottom:28px}
+.hero-right{position:absolute;right:56px;bottom:72px;text-align:right;font:500 13px/1.6 var(--sans);color:var(--cinza)}
+.counter{font:300 64px/1 var(--disp);color:var(--osso)}
+.counter span{font-size:22px;color:var(--cinza)}
+.progress{position:absolute;right:56px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;align-items:flex-end;font:500 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cinza)}
+.progress div{display:flex;gap:10px;align-items:center}
+.progress div:after{content:"";width:18px;height:2px;background:var(--linha)}
+.progress div.on{color:var(--osso)}.progress div.on:after{background:var(--lima);width:36px}
+.scrollhint{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);font:500 11px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--cinza)}
+/* ficha técnica */
+.tag{position:absolute;font:500 13px/1.35 var(--sans);color:var(--osso);width:230px}
+.tag b{display:block;font:italic 500 21px var(--disp);margin-bottom:2px}
+.tag small{color:var(--cinza);font-size:12px;letter-spacing:.04em}
+.tag .num{font:600 11px var(--sans);color:var(--lima);letter-spacing:.2em}
+.tag:before{content:"";position:absolute;top:14px;height:1px;background:var(--lima);width:120px}
+.tag.l{text-align:right}.tag.l:before{right:-136px}
+.tag.r:before{left:-136px}
+.tag:after{content:"";position:absolute;top:10px;width:9px;height:9px;border-radius:50%;background:var(--lima)}
+.tag.l:after{right:-142px}.tag.r:after{left:-142px}
+/* manifesto */
+.manifesto{padding:160px 56px 140px;display:grid;grid-template-columns:280px 1fr;gap:80px;border-top:1px solid var(--linha)}
+.manifesto .side{font:500 13px/1.6 var(--sans);color:var(--cinza)}
+.manifesto .side .eyebrow{margin-bottom:24px}
+.manifesto p.big{font:400 64px/1.08 var(--disp);font-variation-settings:'SOFT' 40;letter-spacing:-.025em}
+.manifesto p.big .dim{color:#3a3f37}
+.manifesto p.big em{font-style:italic;color:var(--lima)}
+/* destaques horizontal */
+.destaques{background:var(--mata);padding:110px 0 120px;position:relative}
+.dest-head{display:flex;justify-content:space-between;align-items:end;padding:0 56px 60px}
+.dest-head h2{font:400 96px/.9 var(--disp);letter-spacing:-.04em}
+.dest-head h2 em{font-style:italic}
+.track{display:flex;gap:28px;padding-left:56px;transform:translateX(-140px)}
+.dish{flex:0 0 520px;border-top:1px solid rgba(243,243,238,.25);padding-top:22px;position:relative}
+.dish .no{font:600 12px var(--sans);letter-spacing:.2em;color:var(--lima)}
+.dish .pic{height:330px;display:grid;place-items:center;position:relative;margin:10px 0 18px;background:radial-gradient(closest-side,rgba(214,242,58,.10),transparent 70%)}
+.dish h3{font:italic 500 44px/1 var(--disp);letter-spacing:-.02em;margin-bottom:10px}
+.dish p{font:400 15px/1.5 var(--sans);color:#b8c4bd;max-width:400px}
+.dish .row{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.price{font:500 22px var(--sans);font-variant-numeric:tabular-nums}
+.plus{width:48px;height:48px;border:1px solid var(--lima);color:var(--lima);display:grid;place-items:center;font-size:24px}
+.mini{position:relative;width:240px;height:220px}
+.mini svg{position:absolute;left:0;width:240px;height:auto;filter:drop-shadow(0 10px 10px rgba(0,0,0,.4))}
+.scrollbar{margin:56px 56px 0;height:2px;background:rgba(243,243,238,.15);position:relative}
+.scrollbar:after{content:"";position:absolute;left:0;top:0;height:2px;width:38%;background:var(--lima)}
+/* local */
+.local{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--linha)}
+.local>div{padding:110px 56px}
+.local h2{font:400 80px/.92 var(--disp);letter-spacing:-.035em;margin-bottom:40px}
+.local h2 em{font-style:italic;color:var(--lima)}
+.hours{list-style:none;font:500 17px var(--sans)}
+.hours li{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--linha)}
+.hours li.hoje{color:var(--lima)}
+.hours li span:last-child{font-variant-numeric:tabular-nums}
+.open{display:inline-flex;align-items:center;gap:10px;font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--lima);color:var(--lima);padding:10px 14px;margin-bottom:34px}
+.open:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lima)}
+.map{background:var(--carvao2);position:relative;border-left:1px solid var(--linha);overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.addr{position:absolute;left:56px;bottom:56px;font:400 30px/1.2 var(--disp)}
+.addr small{display:block;font:500 13px var(--sans);color:var(--cinza);margin-top:10px;letter-spacing:.04em}
+/* insta */
+.insta{position:relative;padding:110px 0 0;border-top:1px solid var(--linha);overflow:hidden}
+.marquee{font:italic 400 150px/1 var(--disp);letter-spacing:-.04em;white-space:nowrap;color:var(--osso)}
+.marquee span{color:transparent;-webkit-text-stroke:1px var(--cinza)}
+.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin-top:50px}
+.grid6 div{aspect-ratio:1;background:var(--mata);display:grid;place-items:center;font:500 11px var(--sans);letter-spacing:.2em;color:#6f8a7e;text-transform:uppercase}
+.grid6 div:nth-child(even){background:var(--carvao2)}
+/* footer */
+.footer{padding:110px 56px 40px;background:var(--lima);color:var(--carvao)}
+.footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;font:500 15px/1.7 var(--sans)}
+.footer h4{font:600 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px;opacity:.6}
+.footer .cta-big{font:400 56px/1 var(--disp);letter-spacing:-.03em}
+.footer .cta-big em{font-style:italic}
+.footer .word{font:italic 800 330px/.78 var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1;letter-spacing:-.06em;margin-top:80px;margin-left:-14px;margin-bottom:40px}
+.footer .legal{position:relative;z-index:2;display:flex;justify-content:space-between;font:500 12px var(--sans);margin-top:30px;opacity:.7}
+/* CARDÁPIO */
+.cardapio{display:grid;grid-template-columns:1fr 460px;min-height:1500px}
+.menu{padding:140px 56px 80px}
+.menu-head h1{font:400 150px/.85 var(--disp);letter-spacing:-.05em}
+.menu-head h1 em{font-style:italic;color:var(--lima)}
+.menu-head p{color:var(--cinza);max-width:440px;margin:24px 0 50px;font-size:16px;line-height:1.55}
+.cats{display:flex;gap:0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);margin-bottom:24px;position:relative;background:var(--carvao)}
+.cats div{padding:18px 22px;font:600 13px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--cinza)}
+.cats div.on{color:var(--carvao);background:var(--lima)}
+.cats div sup{font-size:10px;margin-left:4px}
+.sec-title{display:flex;align-items:baseline;gap:18px;margin:46px 0 4px}
+.sec-title h2{font:italic 400 46px var(--disp);letter-spacing:-.02em}
+.sec-title span{font:600 12px var(--sans);color:var(--cinza);letter-spacing:.2em}
+.item{display:grid;grid-template-columns:54px 1fr auto 52px;gap:22px;align-items:center;padding:24px 0;border-bottom:1px solid var(--linha);position:relative}
+.item .n{font:600 12px var(--sans);color:var(--cinza);letter-spacing:.14em}
+.item h3{font:500 28px var(--disp);letter-spacing:-.01em;display:flex;gap:12px;align-items:center}
+.item h3 .badge{font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;background:var(--mata2);color:var(--lima);padding:4px 8px}
+.item p{font:400 14px/1.5 var(--sans);color:var(--cinza);margin-top:4px;max-width:560px}
+.item .price{font-size:20px}
+.item .add{width:52px;height:52px;border:1px solid var(--linha);display:grid;place-items:center;font-size:22px}
+.item.hover{background:linear-gradient(90deg,rgba(214,242,58,.06),transparent)}
+.item.hover .add{background:var(--lima);color:#111;border-color:var(--lima)}
+.item.hover h3{color:var(--lima)}
+.float-burger{position:absolute;right:220px;top:-90px;width:230px;height:200px;transform:rotate(-8deg);z-index:5}
+.float-burger svg{position:absolute;left:0;width:230px;height:auto;filter:drop-shadow(0 18px 20px rgba(0,0,0,.6))}
+.qty{display:flex;align-items:center;border:1px solid var(--lima);height:52px}
+.qty span{width:40px;text-align:center;font:600 16px var(--sans)}
+.qty b{width:36px;text-align:center;color:var(--lima);font-size:20px;font-weight:400}
+/* drawer */
+.drawer{background:var(--osso);color:var(--carvao);padding:40px 36px;position:relative;border-left:1px solid #000}
+.drawer h2{font:italic 500 42px var(--disp);letter-spacing:-.02em;display:flex;justify-content:space-between;align-items:baseline}
+.drawer h2 small{font:600 12px var(--sans);font-style:normal;letter-spacing:.18em;opacity:.55}
+.ci{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:20px 0;border-bottom:1px solid rgba(15,17,14,.14)}
+.ci h4{font:500 21px var(--disp)}
+.ci .p{font:600 16px var(--sans);font-variant-numeric:tabular-nums;text-align:right}
+.ci .ctrl{display:flex;gap:16px;align-items:center;font:600 13px var(--sans)}
+.ci .ctrl .q{display:flex;border:1px solid rgba(15,17,14,.3)}
+.ci .ctrl .q span{width:32px;height:32px;display:grid;place-items:center}
+.ci .ctrl .rm{text-decoration:underline;opacity:.55}
+.ci .obs{grid-column:1/-1;font:400 13px var(--sans);opacity:.6}
+.field{margin-top:18px}
+.field label{display:block;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:8px}
+.field .in{border:1px solid rgba(15,17,14,.25);padding:14px;font:400 15px var(--sans);background:#fff}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--carvao)}
+.seg div{padding:13px;text-align:center;font:600 13px var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.seg div.on{background:var(--carvao);color:var(--lima)}
+.tot{display:flex;justify-content:space-between;font:500 15px var(--sans);padding:6px 0}
+.tot.big{font:500 30px var(--disp);padding-top:14px;border-top:2px solid var(--carvao);margin-top:10px}
+.wa{display:flex;justify-content:space-between;align-items:center;background:var(--carvao);color:var(--lima);padding:22px 24px;font:700 15px var(--sans);text-transform:uppercase;letter-spacing:.04em;margin-top:24px}
+/* MOBILE */
+.mobiles{display:flex;gap:40px;align-items:flex-start}
+.phone{width:390px;height:844px;background:var(--carvao);position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);border-radius:0}
+.phone .nav{padding:20px}
+.phone .logo{font-size:24px}
+.burgermenu{width:44px;height:44px;border:1px solid var(--linha);display:grid;place-items:center;gap:0}
+.phone .giant{font-size:150px;top:230px}
+.phone .stage{width:300px;transform:translateX(-50%) scale(.72);transform-origin:50% 0;top:40px}
+.phone .hero-copy{left:20px;right:20px;bottom:24px;width:auto}
+.phone .hero-copy h1{font-size:34px}
+.phone .btn{width:100%;justify-content:space-between}
+.m-menu{padding:84px 20px 20px}
+.m-menu h1{font:400 76px/.85 var(--disp);letter-spacing:-.05em}
+.m-menu h1 em{font-style:italic;color:var(--lima)}
+.m-cats{display:flex;overflow:hidden;margin:24px -20px 8px;padding-left:20px;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.m-cats div{padding:14px 16px;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);white-space:nowrap}
+.m-cats div.on{background:var(--lima);color:#111}
+.m-item{display:grid;grid-template-columns:1fr 44px;gap:12px;padding:18px 0;border-bottom:1px solid var(--linha)}
+.m-item h3{font:500 22px var(--disp)}
+.m-item p{font:400 13px/1.45 var(--sans);color:var(--cinza);margin:4px 0 8px}
+.m-item .price{font-size:16px}
+.m-item .add{width:44px;height:44px;border:1px solid var(--linha);display:grid;place-items:center;font-size:20px;align-self:center}
+.m-bar{position:absolute;left:12px;right:12px;bottom:12px;background:var(--lima);color:#111;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font:700 14px var(--sans);text-transform:uppercase}
+.sheet{position:absolute;left:0;right:0;bottom:0;top:120px;background:var(--osso);color:var(--carvao);padding:22px 20px}
+.sheet .grab{width:48px;height:4px;background:rgba(15,17,14,.25);margin:0 auto 18px}
+.dim-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.caption{max-width:390px;font:500 12px var(--sans);color:#b9bdb4;margin-top:10px;letter-spacing:.06em}
+/* tokens */
+.tokens{display:grid;grid-template-columns:1.2fr 1fr;gap:2px;width:1440px}
+.tokens>div{background:var(--carvao);padding:48px 56px}
+.sw{display:flex;gap:0;height:220px;margin-top:20px}
+.sw div{display:flex;flex-direction:column;justify-content:flex-end;padding:16px;font:600 12px/1.5 var(--sans)}
+.typespec .a{font:italic 700 120px/.9 var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1;letter-spacing:-.04em}
+.typespec .b{font:400 40px/1.1 var(--disp);margin:10px 0 18px}
+.typespec .c{font:400 16px/1.55 var(--sans);color:#c7cbc2}
+.typespec .lbl{font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--lima);margin:26px 0 8px}
+</style></head><body>
+<!-- Biblioteca de camadas do burger (SVG). Cada <g> é uma camada independente, pensada para cair e empilhar. viewBox de cada camada: 0 0 400 H -->
+<template id="layers">
+<!-- PÃO DE BAIXO -->
+<svg data-layer="pao-base" viewBox="0 0 400 70"><defs><linearGradient id="pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E3A55A"/><stop offset=".45" stop-color="#C67A32"/><stop offset="1" stop-color="#7A421A"/></linearGradient></defs>
+<path d="M18 14 Q200 4 382 14 Q392 16 388 30 Q370 66 200 66 Q30 66 12 30 Q8 16 18 14Z" fill="url(#pb)"/>
+<path d="M22 16 Q200 8 378 16 L376 24 Q200 16 24 24Z" fill="#F3D9A8" opacity=".75"/></svg>
+<!-- ALFACE -->
+<svg data-layer="alface" viewBox="0 0 400 40"><defs><linearGradient id="al" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BD45A"/><stop offset="1" stop-color="#3E7A2A"/></linearGradient></defs>
+<path d="M6 18 C26 2 40 34 62 14 C84 -2 98 34 122 14 C146 0 158 34 182 14 C206 -2 220 34 244 14 C268 0 280 34 304 14 C328 -2 342 34 364 14 C380 4 396 14 394 22 C380 38 350 26 330 36 C300 24 280 40 250 30 C220 40 196 26 170 36 C140 26 120 40 92 30 C66 40 40 26 20 34 C8 30 2 24 6 18Z" fill="url(#al)"/>
+<path d="M30 20 C80 14 140 24 200 18 C260 14 320 24 370 18" stroke="#C8EE8E" stroke-width="2" fill="none" opacity=".6"/></svg>
+<!-- BLEND -->
+<svg data-layer="blend" viewBox="0 0 400 64"><defs><linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3A22"/><stop offset=".5" stop-color="#4A2614"/><stop offset="1" stop-color="#2A140A"/></linearGradient></defs>
+<path d="M14 18 Q20 6 60 6 L340 6 Q380 6 386 18 Q394 32 386 46 Q380 58 340 58 L60 58 Q20 58 14 46 Q6 32 14 18Z" fill="url(#bl)"/>
+<g fill="#1C0D05" opacity=".55"><circle cx="70" cy="22" r="3"/><circle cx="120" cy="36" r="2.4"/><circle cx="170" cy="20" r="2"/><circle cx="230" cy="40" r="3"/><circle cx="290" cy="24" r="2.6"/><circle cx="340" cy="38" r="2"/><circle cx="96" cy="46" r="2"/><circle cx="260" cy="16" r="1.8"/></g>
+<path d="M30 12 Q200 2 370 12" stroke="#9A5A34" stroke-width="3" fill="none" opacity=".5"/></svg>
+<!-- CHEDDAR -->
+<svg data-layer="cheddar" viewBox="0 0 400 56"><defs><linearGradient id="ch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD84A"/><stop offset="1" stop-color="#E8A70E"/></linearGradient></defs>
+<path d="M10 6 L390 6 L384 18 L352 18 Q346 44 336 18 L262 18 Q254 54 244 18 L150 18 Q142 40 132 18 L70 18 Q62 48 54 18 L18 18Z" fill="url(#ch)"/>
+<path d="M14 8 L386 8" stroke="#FFF1A6" stroke-width="2" opacity=".8"/></svg>
+<!-- BACON -->
+<svg data-layer="bacon" viewBox="0 0 400 34"><path d="M16 14 C60 2 90 26 140 12 C190 0 220 26 270 12 C320 0 350 24 386 12 L386 22 C350 34 320 12 270 24 C220 36 190 12 140 24 C90 36 60 14 16 26Z" fill="#9C2B22"/>
+<path d="M16 18 C60 8 90 30 140 16 C190 6 220 30 270 16 C320 6 350 28 386 16" stroke="#F2B9A2" stroke-width="3" fill="none"/></svg>
+<!-- TOMATE -->
+<svg data-layer="tomate" viewBox="0 0 400 30"><defs><linearGradient id="tm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0503C"/><stop offset="1" stop-color="#A81E1A"/></linearGradient></defs>
+<rect x="34" y="4" width="160" height="22" rx="11" fill="url(#tm)"/><rect x="206" y="4" width="160" height="22" rx="11" fill="url(#tm)"/>
+<g fill="#FFC9B8" opacity=".7"><ellipse cx="80" cy="15" rx="10" ry="4"/><ellipse cx="148" cy="15" rx="10" ry="4"/><ellipse cx="252" cy="15" rx="10" ry="4"/><ellipse cx="320" cy="15" rx="10" ry="4"/></g></svg>
+<!-- PÃO DE CIMA -->
+<svg data-layer="pao-topo" viewBox="0 0 400 150"><defs><radialGradient id="pt" cx=".4" cy=".25" r=".9"><stop offset="0" stop-color="#F0B868"/><stop offset=".55" stop-color="#C9792E"/><stop offset="1" stop-color="#7A3E14"/></radialGradient></defs>
+<path d="M12 138 Q4 140 8 124 Q30 8 200 6 Q370 8 392 124 Q396 140 388 138Z" fill="url(#pt)"/>
+<path d="M20 136 L380 136 L384 146 Q200 152 16 146Z" fill="#F3D9A8"/>
+<g fill="#FFF4DA"><ellipse cx="120" cy="50" rx="7" ry="3.5" transform="rotate(-20 120 50)"/><ellipse cx="170" cy="34" rx="7" ry="3.5" transform="rotate(10 170 34)"/><ellipse cx="230" cy="40" rx="7" ry="3.5" transform="rotate(-8 230 40)"/><ellipse cx="280" cy="58" rx="7" ry="3.5" transform="rotate(25 280 58)"/><ellipse cx="90" cy="84" rx="7" ry="3.5" transform="rotate(-35 90 84)"/><ellipse cx="200" cy="70" rx="7" ry="3.5"/><ellipse cx="320" cy="90" rx="7" ry="3.5" transform="rotate(30 320 90)"/><ellipse cx="150" cy="96" rx="7" ry="3.5" transform="rotate(-12 150 96)"/><ellipse cx="256" cy="100" rx="7" ry="3.5" transform="rotate(14 256 100)"/></g>
+<path d="M70 60 Q130 22 200 20" stroke="#FFE2AE" stroke-width="10" stroke-linecap="round" fill="none" opacity=".45"/></svg>
+</template>
+
+
+<div class="board-title"><b>00</b> — Direção visual · tokens</div>
+<div class="tokens">
+ <div>
+  <div class="eyebrow">Paleta · regra 60–30–10</div>
+  <div class="sw">
+   <div style="flex:6;background:#0F110E;border:1px solid #333">Carvão<br>#0F110E · 60%<br><span style="opacity:.6">fundo, respiro</span></div>
+   <div style="flex:3;background:#17332A">Mata<br>#17332A · 30%<br><span style="opacity:.6">faixas, superfícies</span></div>
+   <div style="flex:1.2;background:#D6F23A;color:#111">Lima<br>#D6F23A · 10%<br>CTAs, foco</div>
+  </div>
+  <div class="sw" style="height:70px;margin-top:2px">
+   <div style="flex:1;background:#F3F3EE;color:#111">Osso #F3F3EE · texto / carrinho</div>
+   <div style="flex:1;background:#8C9188;color:#111">Cinza #8C9188 · apoio</div>
+  </div>
+  <p class="typespec"><span class="c" style="display:block;margin-top:22px;max-width:620px">Sem roxo, bege ou laranja. As cores quentes do site vêm só do próprio burger (pão, carne, queijo). Assim, o produto é a única coisa "quente" na tela, e o verde-lima marca tudo o que é ação: pedir, adicionar, finalizar.</span></p>
+ </div>
+ <div class="typespec">
+  <div class="lbl">Personalidade — Fraunces (variável, eixos SOFT + WONK)</div>
+  <div class="a">Ofício.</div>
+  <div class="b">Smash é técnica. <em style="color:var(--lima)">Artesanal</em> é paciência.</div>
+  <div class="lbl">Funcional — Instrument Sans</div>
+  <div class="c">Botões, navegação, preços, formulários. Neutra, legível, números tabulares para os valores do carrinho.</div>
+  <div class="lbl">Forma</div>
+  <div class="c">Cantos retos (raio 0), linhas finas de 1px e listas em vez de cards. A referência é a ficha técnica de cozinha e o cardápio impresso de restaurante, não um template de app.</div>
+ </div>
+</div>
+
+<!-- F1 HERO estado inicial -->
+<div class="board-title"><b>01</b> — Home · Hero · scroll 0% (ingredientes começam a cair)</div>
+<div class="frame hero" id="f1">
+ <div class="nav"><div class="logo">Ofício<small>Hamburgueria artesanal</small></div>
+  <ul><li>Casa</li><li>Cardápio</li><li>História</li><li>Onde estamos</li></ul>
+  <div style="display:flex;gap:12px"><div class="cartpill">Pedido <i>0</i></div><div class="btn" style="padding:13px 18px;font-size:13px">Ver cardápio</div></div></div>
+ <div class="giant">Ofício</div>
+ <div class="stage" data-burger="hero-start"></div>
+ <div class="shadow"></div>
+ <div class="hero-copy"><div class="eyebrow">Desde a primeira chapa</div>
+  <h1>Um burger se <em>monta</em> camada por camada.</h1>
+  <p>Role a página e veja o seu ser montado. Pão de fermentação lenta, blend moído no dia, cheddar maturado.</p>
+  <div class="btn">Montar meu pedido <span class="arr">→</span></div></div>
+ <div class="progress"><div class="on">01 Pão</div><div>02 Folhas</div><div>03 Blend</div><div>04 Cheddar</div><div>05 Bacon</div><div>06 Tomate</div><div>07 Coroa</div></div>
+ <div class="scrollhint">Role para montar ↓</div>
+ <div class="note" style="left:500px;top:120px">Ao carregar, o pão de baixo pousa sozinho. Os outros ingredientes ficam suspensos acima da tela e caem conforme o scroll (seção fixa, pinned).</div>
+</div>
+
+<!-- F2 HERO montado -->
+<div class="board-title"><b>02</b> — Home · Hero · scroll 100% (burger montado + ficha técnica)</div>
+<div class="frame hero" id="f2">
+ <div class="nav"><div class="logo">Ofício<small>Hamburgueria artesanal</small></div>
+  <ul><li>Casa</li><li>Cardápio</li><li>História</li><li>Onde estamos</li></ul>
+  <div style="display:flex;gap:12px"><div class="cartpill">Pedido <i>0</i></div><div class="btn" style="padding:13px 18px;font-size:13px">Ver cardápio</div></div></div>
+ <div class="giant" style="color:#1b3a2f">Ofício</div>
+ <div class="stage" data-burger="hero-full"></div>
+ <div class="shadow"></div>
+ <div class="tag l" style="left:290px;top:250px"><span class="num">07</span><b>Brioche na manteiga</b><small>fermentação de 24h, gergelim tostado</small></div>
+ <div class="tag l" style="left:290px;top:470px"><span class="num">04</span><b>Cheddar inglês</b><small>maturado 12 meses, derretido no vapor</small></div>
+ <div class="tag l" style="left:290px;top:600px"><span class="num">02</span><b>Alface americana</b><small>de produtor local, colhida no dia</small></div>
+ <div class="tag r" style="left:930px;top:360px"><span class="num">06 · 05</span><b>Tomate + bacon</b><small>bacon defumado na casa por 6h</small></div>
+ <div class="tag r" style="left:930px;top:520px"><span class="num">03</span><b>Blend 180g</b><small>acém + costela, moído toda manhã</small></div>
+ <div class="hero-right"><div class="counter">7<span>/7 camadas</span></div>montado em 4 min na chapa</div>
+ <div class="hero-copy"><div class="eyebrow">O Clássico do Ofício</div>
+  <h1>Pronto. Agora é <em>o seu</em>.</h1>
+  <div class="btn">Ir para o cardápio <span class="arr">→</span></div></div>
+ <div class="progress"><div class="on">01 Pão</div><div class="on">02 Folhas</div><div class="on">03 Blend</div><div class="on">04 Cheddar</div><div class="on">05 Bacon</div><div class="on">06 Tomate</div><div class="on">07 Coroa</div></div>
+ <div class="note" style="right:56px;top:130px">Cada ingrediente cai com um leve quique. A linha da ficha técnica se desenha na hora do pouso. O "OFÍCIO" gigante ao fundo se move mais devagar (parallax) e escurece.</div>
+</div>
+
+<!-- F3 manifesto + destaques -->
+<div class="board-title"><b>03</b> — Home · História (texto acende palavra por palavra) + Destaques (scroll horizontal)</div>
+<div class="frame">
+ <section class="manifesto">
+  <div class="side"><div class="eyebrow">Nossa história</div>Começamos com uma chapa de ferro e uma regra: nada sai da cozinha que a gente não faria para a própria mesa.</div>
+  <p class="big">Não temos pressa. O pão fermenta de um dia para o outro, o bacon defuma a manhã inteira e o blend é moído antes de abrir a porta. <em>Isso é ofício.</em> <span class="dim">O resto é só lanche rápido — e lanche rápido tem em todo lugar.</span></p>
+ </section>
+ <section class="destaques">
+  <div class="dest-head"><h2>Os da <em>casa</em></h2><div class="btn ghost">Cardápio completo <span class="arr" style="border-color:var(--osso)">→</span></div></div>
+  <div class="track">
+   <div class="dish"><span class="no">01 / 06</span><div class="pic"><div class="mini" data-burger="mini-a"></div></div><h3>O Clássico</h3><p>Blend 180g, cheddar inglês, alface, tomate, bacon da casa e maionese de alho assado no brioche.</p><div class="row"><span class="price">R$ 42,00</span><span class="plus">+</span></div></div>
+   <div class="dish"><span class="no">02 / 06</span><div class="pic"><div class="mini" data-burger="mini-b"></div></div><h3>Duplo Brasa</h3><p>Dois smash de 100g, crosta caramelizada, cheddar em dobro e cebola na chapa.</p><div class="row"><span class="price">R$ 46,00</span><span class="plus">+</span></div></div>
+   <div class="dish"><span class="no">03 / 06</span><div class="pic"><div class="mini" data-burger="mini-c"></div></div><h3>Verde Ofício</h3><p>Blend 180g, queijo minas curado, rúcula, pesto de manjericão e tomate confit.</p><div class="row"><span class="price">R$ 44,00</span><span class="plus">+</span></div></div>
+  </div>
+  <div class="scrollbar"></div>
+  <div class="note" style="right:56px;top:40px">A seção fica fixa: o scroll vertical move os pratos para o lado. O "+" já adiciona ao pedido.</div>
+ </section>
+</div>
+
+<!-- F4 local + insta + footer -->
+<div class="board-title"><b>04</b> — Home · Onde estamos e horário · Instagram · Contato</div>
+<div class="frame">
+ <section class="local">
+  <div><div class="open">Aberto agora · fecha às 23h</div><h2>Venha comer <em>na chapa</em>.</h2>
+   <ul class="hours"><li><span>Segunda</span><span>Fechado</span></li><li><span>Terça a quinta</span><span>18h – 23h</span></li><li class="hoje"><span>Sexta (hoje)</span><span>18h – 00h</span></li><li><span>Sábado</span><span>12h – 00h</span></li><li><span>Domingo</span><span>12h – 22h</span></li></ul></div>
+  <div class="map"><svg viewBox="0 0 720 640" preserveAspectRatio="xMidYMid slice"><g stroke="#2a2f27" stroke-width="2" fill="none"><path d="M0 120 L720 180"/><path d="M0 300 L720 260"/><path d="M0 470 L720 520"/><path d="M140 0 L200 640"/><path d="M380 0 L330 640"/><path d="M560 0 L610 640"/><path d="M0 40 L300 640" stroke-width="8" stroke="#1f241d"/></g><g fill="#17332A"><rect x="420" y="320" width="110" height="140"/><rect x="60" y="170" width="80" height="100"/></g><circle cx="356" cy="282" r="60" fill="rgba(214,242,58,.12)"/><circle cx="356" cy="282" r="12" fill="#D6F23A"/></svg>
+   <div class="addr">Rua das Brasas, 180<br>Vila Fictícia — São Paulo<small>ENDEREÇO PROVISÓRIO · mapa ilustrado (sem API)</small></div></div>
+ </section>
+ <section class="insta">
+  <div class="marquee">@oficio.burger <span>@oficio.burger</span> @oficio.burger</div>
+  <div class="grid6"><div>post</div><div>post</div><div>post</div><div>post</div><div>post</div><div>post</div></div>
+  <div class="note" style="right:56px;top:40px">Faixa de texto que corre conforme o scroll. As fotos do feed são espaços provisórios (sem posts inventados), com link para o perfil.</div>
+ </section>
+ <section class="footer">
+  <div class="cols"><div class="cta-big">Fome não espera.<br><em>Peça agora.</em></div>
+   <div><h4>Contato</h4>(11) 90000-0000<br>ola@oficio.burger<br><span style="opacity:.6;font-size:12px">dados provisórios</span></div>
+   <div><h4>Navegue</h4>Cardápio<br>História<br>Onde estamos</div>
+   <div><h4>Social</h4>Instagram<br>WhatsApp</div></div>
+  <div class="word">Ofício</div>
+  <div class="legal"><span>© 2026 Ofício — hamburgueria fictícia</span><span>Feito na chapa</span></div>
+ </section>
+</div>
+
+<!-- F5 cardápio -->
+<div class="board-title"><b>05</b> — Cardápio · desktop · hover no item + carrinho aberto</div>
+<div class="frame">
+ <div class="nav"><div class="logo">Ofício<small>Hamburgueria artesanal</small></div>
+  <ul><li>Casa</li><li style="opacity:1;color:var(--lima)">Cardápio</li><li>História</li><li>Onde estamos</li></ul>
+  <div></div></div>
+ <div class="cardapio">
+  <div class="menu">
+   <div class="menu-head"><h1>Cardápio<br><em>da chapa.</em></h1><p>Escolha, ajuste a quantidade e finalize pelo WhatsApp. Seu pedido chega montado, do jeito que você viu lá na Home.</p></div>
+   <div class="cats"><div class="on">Burgers<sup>6</sup></div><div>Acompanhamentos<sup>4</sup></div><div>Bebidas<sup>4</sup></div><div>Sobremesas<sup>3</sup></div></div>
+   <div class="sec-title"><h2>Burgers</h2><span>06 ITENS</span></div>
+   <div class="item"><span class="n">01</span><div><h3>O Clássico <span class="badge">da casa</span></h3><p>Blend 180g, cheddar inglês, alface, tomate, bacon da casa, maionese de alho assado.</p></div><span class="price">R$ 42</span><div class="qty"><b>–</b><span>2</span><b>+</b></div></div>
+   <div class="item hover"><span class="n">02</span><div style="position:relative"><h3>Duplo Brasa</h3><p>Dois smash de 100g, crosta caramelizada, cheddar em dobro, cebola na chapa.</p><div class="float-burger" data-burger="float"></div></div><span class="price">R$ 46</span><span class="add">+</span></div>
+   <div class="item"><span class="n">03</span><div><h3>Verde Ofício</h3><p>Blend 180g, queijo minas curado, rúcula, pesto de manjericão, tomate confit.</p></div><span class="price">R$ 44</span><span class="add">+</span></div>
+   <div class="item"><span class="n">04</span><div><h3>Defumado</h3><p>Blend 180g, provolone, bacon em lascas, barbecue de café, picles da casa.</p></div><span class="price">R$ 48</span><span class="add">+</span></div>
+   <div class="item"><span class="n">05</span><div><h3>Cogumelo &amp; Trufa</h3><p>Blend 180g, cogumelos salteados, queijo gruyère, maionese trufada.</p></div><span class="price">R$ 52</span><span class="add">+</span></div>
+   <div class="item"><span class="n">06</span><div><h3>Horta <span class="badge">vegetariano</span></h3><p>Burger de grão-de-bico e beterraba, queijo coalho, alface, tomate, molho de iogurte.</p></div><span class="price">R$ 39</span><span class="add">+</span></div>
+   <div class="sec-title"><h2>Acompanhamentos</h2><span>04 ITENS</span></div>
+   <div class="item"><span class="n">07</span><div><h3>Fritas rústicas</h3><p>Batata com casca, alecrim e flor de sal.</p></div><span class="price">R$ 18</span><div class="qty"><b>–</b><span>1</span><b>+</b></div></div>
+   <div class="note" style="left:700px;top:1010px">No hover, a ilustração do burger segue o cursor com um leve giro. As categorias ficam fixas no topo durante o scroll e marcam a seção visível.</div>
+  </div>
+  <aside class="drawer">
+   <h2>Seu pedido <small>3 ITENS</small></h2>
+   <div class="ci"><h4>O Clássico</h4><span class="p">R$ 84,00</span><div class="ctrl"><div class="q"><span>–</span><span>2</span><span>+</span></div><span class="rm">remover</span></div></div>
+   <div class="ci"><h4>Fritas rústicas</h4><span class="p">R$ 18,00</span><div class="ctrl"><div class="q"><span>–</span><span>1</span><span>+</span></div><span class="rm">remover</span></div></div>
+   <div class="field"><label>Como você quer receber?</label><div class="seg"><div class="on">Entrega</div><div>Retirada</div></div></div>
+   <div class="field"><label>Seu nome</label><div class="in">Marina</div></div>
+   <div class="field"><label>Endereço</label><div class="in" style="opacity:.5">Rua, número, bairro</div></div>
+   <div class="field"><label>Pagamento na entrega</label><div class="seg" style="grid-template-columns:1fr 1fr 1fr"><div class="on">Pix</div><div>Cartão</div><div>Dinheiro</div></div></div>
+   <div class="field"><label>Observações</label><div class="in" style="opacity:.5">Ex.: sem cebola, ponto da carne…</div></div>
+   <div style="margin-top:26px"><div class="tot"><span>Subtotal</span><span>R$ 102,00</span></div><div class="tot"><span>Entrega</span><span>a combinar</span></div><div class="tot big"><span>Total</span><span>R$ 102,00</span></div></div>
+   <div class="wa">Enviar pedido no WhatsApp <span>→</span></div>
+   <p style="font:400 12px/1.5 var(--sans);opacity:.6;margin-top:12px">Abre o WhatsApp com o pedido já escrito. O carrinho fica salvo neste navegador.</p>
+  </aside>
+ </div>
+</div>
+
+<!-- F6 mobile -->
+<div class="board-title"><b>06</b> — Mobile · Hero · Cardápio · Carrinho (bottom sheet)</div>
+<div class="mobiles">
+ <div><div class="phone hero" style="height:844px">
+  <div class="nav"><div class="logo">Ofício</div><div class="burgermenu">≡</div></div>
+  <div class="giant">Ofício</div>
+  <div class="stage" data-burger="hero-full"></div>
+  <div class="hero-copy"><div class="eyebrow">Camada por camada</div><h1>Pronto. Agora é <em>o seu</em>.</h1><div class="btn">Ir para o cardápio <span class="arr">→</span></div></div>
+ </div><div class="caption">Mesma queda no scroll, com menos distância. Sem as linhas da ficha técnica: elas viram um texto que muda embaixo.</div></div>
+ <div><div class="phone">
+  <div class="nav"><div class="logo">Ofício</div><div class="burgermenu">≡</div></div>
+  <div class="m-menu"><h1>Cardápio<br><em>da chapa.</em></h1>
+   <div class="m-cats"><div class="on">Burgers</div><div>Acompanhamentos</div><div>Bebidas</div><div>Sobremesas</div></div>
+   <div class="m-item"><div><h3>O Clássico</h3><p>Blend 180g, cheddar inglês, alface, tomate, bacon…</p><span class="price">R$ 42</span></div><span class="add" style="background:var(--lima);color:#111;border-color:var(--lima)">2</span></div>
+   <div class="m-item"><div><h3>Duplo Brasa</h3><p>Dois smash de 100g, crosta caramelizada…</p><span class="price">R$ 46</span></div><span class="add">+</span></div>
+   <div class="m-item"><div><h3>Verde Ofício</h3><p>Blend 180g, queijo minas curado, rúcula…</p><span class="price">R$ 44</span></div><span class="add">+</span></div>
+  </div>
+  <div class="m-bar"><span>Ver pedido · 3</span><span>R$ 102,00 →</span></div>
+ </div><div class="caption">A barra fixa do pedido só aparece quando há itens no carrinho.</div></div>
+ <div><div class="phone">
+  <div class="m-menu" style="opacity:.4"><h1>Cardápio<br><em>da chapa.</em></h1></div>
+  <div class="dim-overlay"></div>
+  <div class="sheet"><div class="grab"></div>
+   <div class="drawer" style="padding:0;border:0;background:none">
+   <h2 style="font-size:32px">Seu pedido <small>3</small></h2>
+   <div class="ci"><h4>O Clássico</h4><span class="p">R$ 84,00</span><div class="ctrl"><div class="q"><span>–</span><span>2</span><span>+</span></div><span class="rm">remover</span></div></div>
+   <div class="ci"><h4>Fritas rústicas</h4><span class="p">R$ 18,00</span><div class="ctrl"><div class="q"><span>–</span><span>1</span><span>+</span></div><span class="rm">remover</span></div></div>
+   <div class="field"><label>Receber</label><div class="seg"><div class="on">Entrega</div><div>Retirada</div></div></div>
+   <div class="field"><label>Seu nome</label><div class="in">Marina</div></div>
+   <div class="tot big"><span>Total</span><span>R$ 102,00</span></div>
+   <div class="wa">Enviar no WhatsApp <span>→</span></div></div>
+  </div>
+ </div><div class="caption">O carrinho abre de baixo para cima (bottom sheet), com rolagem interna.</div></div>
+</div>
+
+<script>
+const T=document.getElementById('layers').content;
+const L=n=>T.querySelector(`[data-layer="${n}"]`).cloneNode(true);
+// [layer, y] — y em px do topo da área, usando largura 400
+const FULL=[['pao-base',560],['alface',540],['blend',486],['cheddar',474],['bacon',462],['tomate',446],['pao-topo',306]];
+function hero(el,mode){
+  FULL.forEach(([n,y],i)=>{const s=L(n);
+    let yy=y, rot=0, op=1;
+    if(mode==='start'){ if(i===0){} else if(i<=2){yy=y-260-i*120;rot=(i%2?-7:5);} else {yy=-200-i*60;rot=(i%2?9:-6);op=.0}}
+    s.style.top=yy+'px'; s.style.transform=`rotate(${rot}deg)`; s.style.opacity=op; el.appendChild(s);});
+}
+function mini(el,w,scale,skip){const k=w/400; FULL.forEach(([n,y])=>{if(skip&&skip.includes(n))return;const s=L(n);s.style.top=((y-306)*k*scale+0)+'px';s.style.width=w+'px';el.appendChild(s);});}
+document.querySelectorAll('[data-burger]').forEach(el=>{const m=el.dataset.burger;
+ if(m==='hero-full')hero(el,'full'); else if(m==='hero-start')hero(el,'start');
+ else if(m==='mini-a')mini(el,240,1); else if(m==='mini-b')mini(el,240,1,['alface','tomate']); else if(m==='mini-c')mini(el,240,1,['bacon','cheddar']);
+ else if(m==='float')mini(el,230,1);});
+</script>
+</body></html>

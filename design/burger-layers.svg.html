@@ -1,0 +1,33 @@
+<!-- Biblioteca de camadas do burger (SVG). Cada <g> é uma camada independente, pensada para cair e empilhar. viewBox de cada camada: 0 0 400 H -->
+<template id="layers">
+<!-- PÃO DE BAIXO -->
+<svg data-layer="pao-base" viewBox="0 0 400 70"><defs><linearGradient id="pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E3A55A"/><stop offset=".45" stop-color="#C67A32"/><stop offset="1" stop-color="#7A421A"/></linearGradient></defs>
+<path d="M18 14 Q200 4 382 14 Q392 16 388 30 Q370 66 200 66 Q30 66 12 30 Q8 16 18 14Z" fill="url(#pb)"/>
+<path d="M22 16 Q200 8 378 16 L376 24 Q200 16 24 24Z" fill="#F3D9A8" opacity=".75"/></svg>
+<!-- ALFACE -->
+<svg data-layer="alface" viewBox="0 0 400 40"><defs><linearGradient id="al" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BD45A"/><stop offset="1" stop-color="#3E7A2A"/></linearGradient></defs>
+<path d="M6 18 C26 2 40 34 62 14 C84 -2 98 34 122 14 C146 0 158 34 182 14 C206 -2 220 34 244 14 C268 0 280 34 304 14 C328 -2 342 34 364 14 C380 4 396 14 394 22 C380 38 350 26 330 36 C300 24 280 40 250 30 C220 40 196 26 170 36 C140 26 120 40 92 30 C66 40 40 26 20 34 C8 30 2 24 6 18Z" fill="url(#al)"/>
+<path d="M30 20 C80 14 140 24 200 18 C260 14 320 24 370 18" stroke="#C8EE8E" stroke-width="2" fill="none" opacity=".6"/></svg>
+<!-- BLEND -->
+<svg data-layer="blend" viewBox="0 0 400 64"><defs><linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3A22"/><stop offset=".5" stop-color="#4A2614"/><stop offset="1" stop-color="#2A140A"/></linearGradient></defs>
+<path d="M14 18 Q20 6 60 6 L340 6 Q380 6 386 18 Q394 32 386 46 Q380 58 340 58 L60 58 Q20 58 14 46 Q6 32 14 18Z" fill="url(#bl)"/>
+<g fill="#1C0D05" opacity=".55"><circle cx="70" cy="22" r="3"/><circle cx="120" cy="36" r="2.4"/><circle cx="170" cy="20" r="2"/><circle cx="230" cy="40" r="3"/><circle cx="290" cy="24" r="2.6"/><circle cx="340" cy="38" r="2"/><circle cx="96" cy="46" r="2"/><circle cx="260" cy="16" r="1.8"/></g>
+<path d="M30 12 Q200 2 370 12" stroke="#9A5A34" stroke-width="3" fill="none" opacity=".5"/></svg>
+<!-- CHEDDAR -->
+<svg data-layer="cheddar" viewBox="0 0 400 56"><defs><linearGradient id="ch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD84A"/><stop offset="1" stop-color="#E8A70E"/></linearGradient></defs>
+<path d="M10 6 L390 6 L384 18 L352 18 Q346 44 336 18 L262 18 Q254 54 244 18 L150 18 Q142 40 132 18 L70 18 Q62 48 54 18 L18 18Z" fill="url(#ch)"/>
+<path d="M14 8 L386 8" stroke="#FFF1A6" stroke-width="2" opacity=".8"/></svg>
+<!-- BACON -->
+<svg data-layer="bacon" viewBox="0 0 400 34"><path d="M16 14 C60 2 90 26 140 12 C190 0 220 26 270 12 C320 0 350 24 386 12 L386 22 C350 34 320 12 270 24 C220 36 190 12 140 24 C90 36 60 14 16 26Z" fill="#9C2B22"/>
+<path d="M16 18 C60 8 90 30 140 16 C190 6 220 30 270 16 C320 6 350 28 386 16" stroke="#F2B9A2" stroke-width="3" fill="none"/></svg>
+<!-- TOMATE -->
+<svg data-layer="tomate" viewBox="0 0 400 30"><defs><linearGradient id="tm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0503C"/><stop offset="1" stop-color="#A81E1A"/></linearGradient></defs>
+<rect x="34" y="4" width="160" height="22" rx="11" fill="url(#tm)"/><rect x="206" y="4" width="160" height="22" rx="11" fill="url(#tm)"/>
+<g fill="#FFC9B8" opacity=".7"><ellipse cx="80" cy="15" rx="10" ry="4"/><ellipse cx="148" cy="15" rx="10" ry="4"/><ellipse cx="252" cy="15" rx="10" ry="4"/><ellipse cx="320" cy="15" rx="10" ry="4"/></g></svg>
+<!-- PÃO DE CIMA -->
+<svg data-layer="pao-topo" viewBox="0 0 400 150"><defs><radialGradient id="pt" cx=".4" cy=".25" r=".9"><stop offset="0" stop-color="#F0B868"/><stop offset=".55" stop-color="#C9792E"/><stop offset="1" stop-color="#7A3E14"/></radialGradient></defs>
+<path d="M12 138 Q4 140 8 124 Q30 8 200 6 Q370 8 392 124 Q396 140 388 138Z" fill="url(#pt)"/>
+<path d="M20 136 L380 136 L384 146 Q200 152 16 146Z" fill="#F3D9A8"/>
+<g fill="#FFF4DA"><ellipse cx="120" cy="50" rx="7" ry="3.5" transform="rotate(-20 120 50)"/><ellipse cx="170" cy="34" rx="7" ry="3.5" transform="rotate(10 170 34)"/><ellipse cx="230" cy="40" rx="7" ry="3.5" transform="rotate(-8 230 40)"/><ellipse cx="280" cy="58" rx="7" ry="3.5" transform="rotate(25 280 58)"/><ellipse cx="90" cy="84" rx="7" ry="3.5" transform="rotate(-35 90 84)"/><ellipse cx="200" cy="70" rx="7" ry="3.5"/><ellipse cx="320" cy="90" rx="7" ry="3.5" transform="rotate(30 320 90)"/><ellipse cx="150" cy="96" rx="7" ry="3.5" transform="rotate(-12 150 96)"/><ellipse cx="256" cy="100" rx="7" ry="3.5" transform="rotate(14 256 100)"/></g>
+<path d="M70 60 Q130 22 200 20" stroke="#FFE2AE" stroke-width="10" stroke-linecap="round" fill="none" opacity=".45"/></svg>
+</template>
