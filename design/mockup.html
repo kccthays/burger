@@ -30,7 +30,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .hero{height:900px;position:relative}
 .giant{position:absolute;left:0;right:0;text-align:center;font:italic 800 360px/0.8 var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;letter-spacing:-.05em;color:var(--mata2);top:250px;white-space:nowrap}
 .stage{position:absolute;left:50%;top:0;width:440px;height:900px;transform:translateX(-50%)}
-.stage svg{position:absolute;left:20px;width:400px;height:auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.45))}
+
 .plate{position:absolute;left:50%;top:470px;width:560px;height:560px;border-radius:50%;background:#fff;transform:translate(-50%,-50%)}
 .phone .plate{top:378px;width:360px;height:360px}
 .phone .shadow{display:none}
@@ -80,7 +80,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .dish .row{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
 .price{font:500 22px var(--sans);font-variant-numeric:tabular-nums}
 .plus{width:48px;height:48px;border:1px solid var(--lima);color:var(--lima);display:grid;place-items:center;font-size:24px}
-.mini{position:relative;width:240px;height:220px}
+.mini{position:relative;width:230px;height:230px}
 .mini svg{position:absolute;left:0;width:240px;height:auto;filter:drop-shadow(0 10px 10px rgba(0,0,0,.4))}
 .scrollbar{margin:56px 56px 0;height:2px;background:rgba(243,243,238,.15);position:relative}
 .scrollbar:after{content:"";position:absolute;left:0;top:0;height:2px;width:38%;background:var(--lima)}
@@ -138,7 +138,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .item.hover{background:linear-gradient(90deg,rgba(255,205,31,.35),transparent)}
 .item.hover .add{background:var(--lima);color:#fff;border-color:var(--lima)}
 .item.hover h3{color:var(--lima)}
-.float-burger{position:absolute;right:220px;top:-90px;width:230px;height:200px;transform:rotate(-8deg);z-index:5}
+.float-burger{position:absolute;right:220px;top:-110px;width:210px;height:210px;transform:rotate(-8deg);z-index:5}
 .float-burger svg{position:absolute;left:0;width:230px;height:auto;filter:drop-shadow(0 18px 20px rgba(0,0,0,.6))}
 .qty{display:flex;align-items:center;border:1px solid var(--lima);height:52px}
 .qty span{width:40px;text-align:center;font:600 16px var(--sans)}
@@ -201,39 +201,6 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .typespec .c{font:400 16px/1.55 var(--sans);color:var(--cinza)}
 .typespec .lbl{font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--lima);margin:26px 0 8px}
 </style></head><body>
-<!-- Biblioteca de camadas do burger (SVG). Cada <g> é uma camada independente, pensada para cair e empilhar. viewBox de cada camada: 0 0 400 H -->
-<template id="layers">
-<!-- PÃO DE BAIXO -->
-<svg data-layer="pao-base" viewBox="0 0 400 70"><defs><linearGradient id="pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E3A55A"/><stop offset=".45" stop-color="#C67A32"/><stop offset="1" stop-color="#7A421A"/></linearGradient></defs>
-<path d="M18 14 Q200 4 382 14 Q392 16 388 30 Q370 66 200 66 Q30 66 12 30 Q8 16 18 14Z" fill="url(#pb)"/>
-<path d="M22 16 Q200 8 378 16 L376 24 Q200 16 24 24Z" fill="#F3D9A8" opacity=".75"/></svg>
-<!-- ALFACE -->
-<svg data-layer="alface" viewBox="0 0 400 40"><defs><linearGradient id="al" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BD45A"/><stop offset="1" stop-color="#3E7A2A"/></linearGradient></defs>
-<path d="M6 18 C26 2 40 34 62 14 C84 -2 98 34 122 14 C146 0 158 34 182 14 C206 -2 220 34 244 14 C268 0 280 34 304 14 C328 -2 342 34 364 14 C380 4 396 14 394 22 C380 38 350 26 330 36 C300 24 280 40 250 30 C220 40 196 26 170 36 C140 26 120 40 92 30 C66 40 40 26 20 34 C8 30 2 24 6 18Z" fill="url(#al)"/>
-<path d="M30 20 C80 14 140 24 200 18 C260 14 320 24 370 18" stroke="#C8EE8E" stroke-width="2" fill="none" opacity=".6"/></svg>
-<!-- BLEND -->
-<svg data-layer="blend" viewBox="0 0 400 64"><defs><linearGradient id="bl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3A22"/><stop offset=".5" stop-color="#4A2614"/><stop offset="1" stop-color="#2A140A"/></linearGradient></defs>
-<path d="M14 18 Q20 6 60 6 L340 6 Q380 6 386 18 Q394 32 386 46 Q380 58 340 58 L60 58 Q20 58 14 46 Q6 32 14 18Z" fill="url(#bl)"/>
-<g fill="#1C0D05" opacity=".55"><circle cx="70" cy="22" r="3"/><circle cx="120" cy="36" r="2.4"/><circle cx="170" cy="20" r="2"/><circle cx="230" cy="40" r="3"/><circle cx="290" cy="24" r="2.6"/><circle cx="340" cy="38" r="2"/><circle cx="96" cy="46" r="2"/><circle cx="260" cy="16" r="1.8"/></g>
-<path d="M30 12 Q200 2 370 12" stroke="#9A5A34" stroke-width="3" fill="none" opacity=".5"/></svg>
-<!-- CHEDDAR -->
-<svg data-layer="cheddar" viewBox="0 0 400 56"><defs><linearGradient id="ch" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD84A"/><stop offset="1" stop-color="#E8A70E"/></linearGradient></defs>
-<path d="M10 6 L390 6 L384 18 L352 18 Q346 44 336 18 L262 18 Q254 54 244 18 L150 18 Q142 40 132 18 L70 18 Q62 48 54 18 L18 18Z" fill="url(#ch)"/>
-<path d="M14 8 L386 8" stroke="#FFF1A6" stroke-width="2" opacity=".8"/></svg>
-<!-- BACON -->
-<svg data-layer="bacon" viewBox="0 0 400 34"><path d="M16 14 C60 2 90 26 140 12 C190 0 220 26 270 12 C320 0 350 24 386 12 L386 22 C350 34 320 12 270 24 C220 36 190 12 140 24 C90 36 60 14 16 26Z" fill="#9C2B22"/>
-<path d="M16 18 C60 8 90 30 140 16 C190 6 220 30 270 16 C320 6 350 28 386 16" stroke="#F2B9A2" stroke-width="3" fill="none"/></svg>
-<!-- TOMATE -->
-<svg data-layer="tomate" viewBox="0 0 400 30"><defs><linearGradient id="tm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0503C"/><stop offset="1" stop-color="#A81E1A"/></linearGradient></defs>
-<rect x="34" y="4" width="160" height="22" rx="11" fill="url(#tm)"/><rect x="206" y="4" width="160" height="22" rx="11" fill="url(#tm)"/>
-<g fill="#FFC9B8" opacity=".7"><ellipse cx="80" cy="15" rx="10" ry="4"/><ellipse cx="148" cy="15" rx="10" ry="4"/><ellipse cx="252" cy="15" rx="10" ry="4"/><ellipse cx="320" cy="15" rx="10" ry="4"/></g></svg>
-<!-- PÃO DE CIMA -->
-<svg data-layer="pao-topo" viewBox="0 0 400 150"><defs><radialGradient id="pt" cx=".4" cy=".25" r=".9"><stop offset="0" stop-color="#F0B868"/><stop offset=".55" stop-color="#C9792E"/><stop offset="1" stop-color="#7A3E14"/></radialGradient></defs>
-<path d="M12 138 Q4 140 8 124 Q30 8 200 6 Q370 8 392 124 Q396 140 388 138Z" fill="url(#pt)"/>
-<path d="M20 136 L380 136 L384 146 Q200 152 16 146Z" fill="#F3D9A8"/>
-<g fill="#FFF4DA"><ellipse cx="120" cy="50" rx="7" ry="3.5" transform="rotate(-20 120 50)"/><ellipse cx="170" cy="34" rx="7" ry="3.5" transform="rotate(10 170 34)"/><ellipse cx="230" cy="40" rx="7" ry="3.5" transform="rotate(-8 230 40)"/><ellipse cx="280" cy="58" rx="7" ry="3.5" transform="rotate(25 280 58)"/><ellipse cx="90" cy="84" rx="7" ry="3.5" transform="rotate(-35 90 84)"/><ellipse cx="200" cy="70" rx="7" ry="3.5"/><ellipse cx="320" cy="90" rx="7" ry="3.5" transform="rotate(30 320 90)"/><ellipse cx="150" cy="96" rx="7" ry="3.5" transform="rotate(-12 150 96)"/><ellipse cx="256" cy="100" rx="7" ry="3.5" transform="rotate(14 256 100)"/></g>
-<path d="M70 60 Q130 22 200 20" stroke="#FFE2AE" stroke-width="10" stroke-linecap="round" fill="none" opacity=".45"/></svg>
-</template>
 
 
 <div class="board-title"><b>00</b> — Direção visual · tokens</div>
@@ -289,17 +256,17 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
  <div class="giant" style="color:#A30F22">Ofício</div>
  <div class="plate"></div><div class="stage" data-burger="hero-full"></div>
  <div class="shadow"></div>
- <div class="tag l" style="left:200px;top:250px"><span class="num">07</span><b>Brioche na manteiga</b><small>fermentação de 24h, gergelim tostado</small></div>
+ <div class="tag l" style="left:200px;top:280px"><span class="num">07</span><b>Brioche na manteiga</b><small>fermentação de 24h, gergelim tostado</small></div>
  <div class="tag l" style="left:200px;top:470px"><span class="num">04</span><b>Cheddar inglês</b><small>maturado 12 meses, derretido no vapor</small></div>
- <div class="tag r" style="left:1036px;top:640px"><span class="num">02</span><b>Alface americana</b><small>de produtor local, colhida no dia</small></div>
- <div class="tag r" style="left:1036px;top:360px"><span class="num">06 · 05</span><b>Tomate + bacon</b><small>bacon defumado na casa por 6h</small></div>
+ <div class="tag r" style="left:1036px;top:620px"><span class="num">02</span><b>Alface americana</b><small>de produtor local, colhida no dia</small></div>
+ <div class="tag r" style="left:1036px;top:400px"><span class="num">06 · 05</span><b>Tomate + bacon</b><small>bacon defumado na casa por 6h</small></div>
  <div class="tag r" style="left:1036px;top:520px"><span class="num">03</span><b>Blend 180g</b><small>acém + costela, moído toda manhã</small></div>
  <div class="hero-right"><div class="counter">7<span>/7 camadas</span></div>montado em 4 min na chapa</div>
  <div class="hero-copy"><div class="eyebrow">O Clássico do Ofício</div>
   <h1>Pronto. Agora é <em>o seu</em>.</h1>
   <div class="btn">Ir para o cardápio <span class="arr">→</span></div></div>
  <div class="progress"><div class="on">01 Pão</div><div class="on">02 Folhas</div><div class="on">03 Blend</div><div class="on">04 Cheddar</div><div class="on">05 Bacon</div><div class="on">06 Tomate</div><div class="on">07 Coroa</div></div>
- <div class="note" style="right:56px;top:130px">Cada ingrediente cai com um leve quique. A linha da ficha técnica se desenha na hora do pouso. O "OFÍCIO" gigante ao fundo se move mais devagar (parallax). O prato branco faz o burger saltar do vermelho.</div>
+ <div class="note" style="right:56px;top:130px">Cada ingrediente cai com um leve quique. A linha da ficha técnica se desenha na hora do pouso. O "OFÍCIO" gigante ao fundo se move mais devagar (parallax). O prato branco faz o burger saltar do vermelho. Cada ingrediente é uma foto separada, com fundo transparente.</div>
 </div>
 
 <!-- F3 manifesto + destaques -->
@@ -418,20 +385,19 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 </div>
 
 <script>
-const T=document.getElementById('layers').content;
-const L=n=>T.querySelector(`[data-layer="${n}"]`).cloneNode(true);
-// [layer, y] — y em px do topo da área, usando largura 400
-const FULL=[['pao-base',560],['alface',540],['blend',486],['cheddar',474],['bacon',462],['tomate',446],['pao-topo',306]];
-function hero(el,mode){
-  FULL.forEach(([n,y],i)=>{const s=L(n);
-    let yy=y, rot=0, op=1;
-    if(mode==='start'){ if(i===0){} else if(i<=2){yy=y-260-i*120;rot=(i%2?-7:5);} else {yy=-200-i*60;rot=(i%2?9:-6);op=.0}}
-    s.style.top=yy+'px'; s.style.transform=`rotate(${rot}deg)`; s.style.opacity=op; el.appendChild(s);});
-}
-function mini(el,w,scale,skip){const k=w/400; FULL.forEach(([n,y])=>{if(skip&&skip.includes(n))return;const s=L(n);s.style.top=((y-306)*k*scale+0)+'px';s.style.width=w+'px';el.appendChild(s);});}
+const IMG='../assets/img/';
+// [camada, largura, base (y do fundo da imagem, px na área de 400 de largura)]
+const OFF=50;
+const FULL=[['paobase',400,640],['alface',430,592],['blend',390,566],['cheddar',420,560],['bacon',410,440],['tomate',400,404],['paotopo',400,372]];
+function layer(n,w,b,extra){const i=new Image();i.src=IMG+n+'.webp';i.alt='';i.className='ing';
+ i.style.cssText=`position:absolute;width:${w}px;left:${20+(400-w)/2}px;filter:drop-shadow(0 14px 14px rgba(0,0,0,.28));`+(extra||'');
+ i.onload=()=>{i.style.top=(b+OFF-w*i.naturalHeight/i.naturalWidth)+'px'};return i;}
+function hero(el,mode){FULL.forEach(([n,w,b],i)=>{let bb=b,extra='';
+  if(mode==='start'&&i>0){ if(i<=2){bb=b-380-i*110;extra=`transform:rotate(${i%2?-8:6}deg);`} else {bb=-300;extra='opacity:0;'} }
+  el.appendChild(layer(n,w,bb,extra));});}
+function photo(el,w){const i=new Image();i.src=IMG+'full.webp';i.alt='';i.style.cssText=`position:absolute;left:0;top:0;width:${w}px;filter:drop-shadow(0 14px 16px rgba(0,0,0,.3))`;el.appendChild(i);}
 document.querySelectorAll('[data-burger]').forEach(el=>{const m=el.dataset.burger;
  if(m==='hero-full')hero(el,'full'); else if(m==='hero-start')hero(el,'start');
- else if(m==='mini-a')mini(el,240,1); else if(m==='mini-b')mini(el,240,1,['alface','tomate']); else if(m==='mini-c')mini(el,240,1,['bacon','cheddar']);
- else if(m==='float')mini(el,230,1);});
+ else if(m.startsWith('mini'))photo(el,230); else if(m==='float')photo(el,210);});
 </script>
 </body></html>
