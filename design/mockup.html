@@ -4,37 +4,43 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--carvao:#0F110E;--carvao2:#171A15;--mata:#17332A;--mata2:#204536;--lima:#D6F23A;--osso:#F3F3EE;--cinza:#8C9188;--linha:rgba(243,243,238,.14);
+:root{--vermelho:#D7192D;--vermelho2:#B01226;--amarelo:#FFCD1F;--ink:#1B1716;--branco:#FFFFFF;
+--carvao:#FFFFFF;--carvao2:#F2F1F0;--mata:#D7192D;--mata2:#F2F1F0;--lima:#D7192D;--osso:#1B1716;--cinza:#6E6866;--linha:rgba(27,23,22,.14);--btn-ink:#FFFFFF;
 --disp:'Fraunces',serif;--sans:'Instrument Sans',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
+.hero,.destaques{--carvao:#D7192D;--carvao2:#C21428;--mata:#D7192D;--mata2:#B01226;--osso:#FFFFFF;--lima:#FFCD1F;--cinza:rgba(255,255,255,.75);--linha:rgba(255,255,255,.3);--btn-ink:#1B1716;background:var(--carvao);color:var(--osso)}
+.frame,.phone{color:var(--osso)}
 .board-title{font:600 14px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#b9bdb4;margin:56px 0 14px}
-.board-title b{color:var(--lima)}
+.board-title b{color:#FFCD1F}
 .frame{width:1440px;position:relative;overflow:hidden;background:var(--carvao);box-shadow:0 30px 80px rgba(0,0,0,.45)}
-.note{position:absolute;font:500 12px/1.4 var(--sans);background:var(--lima);color:#111;padding:6px 10px;max-width:260px;z-index:50}
+.note{position:absolute;font:500 12px/1.4 var(--sans);background:#1B1716;color:#FFCD1F;padding:6px 10px;max-width:260px;z-index:50}
 /* NAV */
 .nav{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:28px 56px;z-index:20}
 .logo{font:italic 600 30px var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1;letter-spacing:-.02em}
 .logo small{font:500 10px var(--sans);letter-spacing:.3em;text-transform:uppercase;display:block;color:var(--cinza);font-style:normal;margin-top:-2px}
 .nav ul{display:flex;gap:36px;list-style:none;font:500 14px var(--sans);letter-spacing:.04em}
 .nav ul li{opacity:.8}
-.btn{display:inline-flex;align-items:center;gap:14px;background:var(--lima);color:#0F110E;font:700 15px var(--sans);letter-spacing:.02em;padding:18px 26px;text-transform:uppercase}
-.btn .arr{display:inline-block;width:26px;height:26px;border:2px solid #0F110E;border-radius:50%;text-align:center;line-height:21px;font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--lima);color:var(--btn-ink);font:700 15px var(--sans);letter-spacing:.02em;padding:18px 26px;text-transform:uppercase}
+.btn .arr{display:inline-block;width:26px;height:26px;border:2px solid currentColor;border-radius:50%;text-align:center;line-height:21px;font-size:14px}
 .btn.ghost{background:transparent;color:var(--osso);border:1px solid var(--linha)}
 .cartpill{display:flex;align-items:center;gap:10px;font:600 14px var(--sans);border:1px solid var(--linha);padding:12px 18px}
-.cartpill i{font-style:normal;background:var(--lima);color:#111;width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+.cartpill i{font-style:normal;background:var(--lima);color:var(--btn-ink);width:22px;height:22px;display:grid;place-items:center;font-size:12px}
 /* HERO */
 .hero{height:900px;position:relative}
 .giant{position:absolute;left:0;right:0;text-align:center;font:italic 800 360px/0.8 var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1,'opsz' 144;letter-spacing:-.05em;color:var(--mata2);top:250px;white-space:nowrap}
 .stage{position:absolute;left:50%;top:0;width:440px;height:900px;transform:translateX(-50%)}
 .stage svg{position:absolute;left:20px;width:400px;height:auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.45))}
+.plate{position:absolute;left:50%;top:470px;width:560px;height:560px;border-radius:50%;background:#fff;transform:translate(-50%,-50%)}
+.phone .plate{top:378px;width:360px;height:360px}
+.phone .shadow{display:none}
 .shadow{position:absolute;left:50%;bottom:118px;width:420px;height:40px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(0,0,0,.6),transparent);}
 .hero-copy{position:absolute;left:56px;bottom:72px;width:380px}
 .eyebrow{font:600 12px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--lima);margin-bottom:16px;display:flex;gap:10px;align-items:center}
 .eyebrow:before{content:"";width:28px;height:1px;background:var(--lima)}
 .hero-copy h1{font:400 46px/1.02 var(--disp);font-variation-settings:'SOFT' 50;letter-spacing:-.02em;margin-bottom:18px}
 .hero-copy h1 em{color:var(--lima)}
-.hero-copy p{font:400 16px/1.55 var(--sans);color:#c7cbc2;margin-bottom:28px}
+.hero-copy p{font:400 16px/1.55 var(--sans);color:var(--cinza);margin-bottom:28px}
 .hero-right{position:absolute;right:56px;bottom:72px;text-align:right;font:500 13px/1.6 var(--sans);color:var(--cinza)}
 .counter{font:300 64px/1 var(--disp);color:var(--osso)}
 .counter span{font-size:22px;color:var(--cinza)}
@@ -48,17 +54,17 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .tag b{display:block;font:italic 500 21px var(--disp);margin-bottom:2px}
 .tag small{color:var(--cinza);font-size:12px;letter-spacing:.04em}
 .tag .num{font:600 11px var(--sans);color:var(--lima);letter-spacing:.2em}
-.tag:before{content:"";position:absolute;top:14px;height:1px;background:var(--lima);width:120px}
-.tag.l{text-align:right}.tag.l:before{right:-136px}
-.tag.r:before{left:-136px}
-.tag:after{content:"";position:absolute;top:10px;width:9px;height:9px;border-radius:50%;background:var(--lima)}
-.tag.l:after{right:-142px}.tag.r:after{left:-142px}
+.tag:before{content:"";position:absolute;top:14px;height:2px;background:#1B1716;width:160px}
+.tag.l{text-align:right}.tag.l:before{right:-176px}
+.tag.r:before{left:-176px}
+.tag:after{content:"";position:absolute;top:9px;width:11px;height:11px;border-radius:50%;background:#1B1716;box-shadow:0 0 0 3px #FFCD1F}
+.tag.l:after{right:-184px}.tag.r:after{left:-184px}
 /* manifesto */
 .manifesto{padding:160px 56px 140px;display:grid;grid-template-columns:280px 1fr;gap:80px;border-top:1px solid var(--linha)}
 .manifesto .side{font:500 13px/1.6 var(--sans);color:var(--cinza)}
 .manifesto .side .eyebrow{margin-bottom:24px}
 .manifesto p.big{font:400 64px/1.08 var(--disp);font-variation-settings:'SOFT' 40;letter-spacing:-.025em}
-.manifesto p.big .dim{color:#3a3f37}
+.manifesto p.big .dim{color:#D6D2D0}
 .manifesto p.big em{font-style:italic;color:var(--lima)}
 /* destaques horizontal */
 .destaques{background:var(--mata);padding:110px 0 120px;position:relative}
@@ -68,9 +74,9 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .track{display:flex;gap:28px;padding-left:56px;transform:translateX(-140px)}
 .dish{flex:0 0 520px;border-top:1px solid rgba(243,243,238,.25);padding-top:22px;position:relative}
 .dish .no{font:600 12px var(--sans);letter-spacing:.2em;color:var(--lima)}
-.dish .pic{height:330px;display:grid;place-items:center;position:relative;margin:10px 0 18px;background:radial-gradient(closest-side,rgba(214,242,58,.10),transparent 70%)}
+.dish .pic{height:330px;display:grid;place-items:center;position:relative;margin:10px 0 18px;background:radial-gradient(circle at 50% 50%,#fff 0 150px,transparent 151px)}
 .dish h3{font:italic 500 44px/1 var(--disp);letter-spacing:-.02em;margin-bottom:10px}
-.dish p{font:400 15px/1.5 var(--sans);color:#b8c4bd;max-width:400px}
+.dish p{font:400 15px/1.5 var(--sans);color:rgba(255,255,255,.85);max-width:400px}
 .dish .row{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
 .price{font:500 22px var(--sans);font-variant-numeric:tabular-nums}
 .plus{width:48px;height:48px;border:1px solid var(--lima);color:var(--lima);display:grid;place-items:center;font-size:24px}
@@ -95,13 +101,14 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .addr small{display:block;font:500 13px var(--sans);color:var(--cinza);margin-top:10px;letter-spacing:.04em}
 /* insta */
 .insta{position:relative;padding:110px 0 0;border-top:1px solid var(--linha);overflow:hidden}
-.marquee{font:italic 400 150px/1 var(--disp);letter-spacing:-.04em;white-space:nowrap;color:var(--osso)}
+.marquee{font:italic 400 150px/1 var(--disp);letter-spacing:-.04em;white-space:nowrap;color:#D7192D}
 .marquee span{color:transparent;-webkit-text-stroke:1px var(--cinza)}
 .grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin-top:50px}
-.grid6 div{aspect-ratio:1;background:var(--mata);display:grid;place-items:center;font:500 11px var(--sans);letter-spacing:.2em;color:#6f8a7e;text-transform:uppercase}
-.grid6 div:nth-child(even){background:var(--carvao2)}
+.grid6 div{aspect-ratio:1;background:#D7192D;display:grid;place-items:center;font:500 11px var(--sans);letter-spacing:.2em;color:rgba(255,255,255,.75);text-transform:uppercase}
+.grid6 div:nth-child(even){background:#FFCD1F;color:rgba(27,23,22,.55)}
 /* footer */
-.footer{padding:110px 56px 40px;background:var(--lima);color:var(--carvao)}
+.footer{padding:110px 56px 40px;background:#FFCD1F;color:#1B1716}
+.footer .word{color:#D7192D}
 .footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;font:500 15px/1.7 var(--sans)}
 .footer h4{font:600 11px var(--sans);letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px;opacity:.6}
 .footer .cta-big{font:400 56px/1 var(--disp);letter-spacing:-.03em}
@@ -124,12 +131,12 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .item{display:grid;grid-template-columns:54px 1fr auto 52px;gap:22px;align-items:center;padding:24px 0;border-bottom:1px solid var(--linha);position:relative}
 .item .n{font:600 12px var(--sans);color:var(--cinza);letter-spacing:.14em}
 .item h3{font:500 28px var(--disp);letter-spacing:-.01em;display:flex;gap:12px;align-items:center}
-.item h3 .badge{font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;background:var(--mata2);color:var(--lima);padding:4px 8px}
+.item h3 .badge{font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;background:#FFCD1F;color:#1B1716;padding:4px 8px}
 .item p{font:400 14px/1.5 var(--sans);color:var(--cinza);margin-top:4px;max-width:560px}
 .item .price{font-size:20px}
 .item .add{width:52px;height:52px;border:1px solid var(--linha);display:grid;place-items:center;font-size:22px}
-.item.hover{background:linear-gradient(90deg,rgba(214,242,58,.06),transparent)}
-.item.hover .add{background:var(--lima);color:#111;border-color:var(--lima)}
+.item.hover{background:linear-gradient(90deg,rgba(255,205,31,.35),transparent)}
+.item.hover .add{background:var(--lima);color:#fff;border-color:var(--lima)}
 .item.hover h3{color:var(--lima)}
 .float-burger{position:absolute;right:220px;top:-90px;width:230px;height:200px;transform:rotate(-8deg);z-index:5}
 .float-burger svg{position:absolute;left:0;width:230px;height:auto;filter:drop-shadow(0 18px 20px rgba(0,0,0,.6))}
@@ -137,7 +144,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .qty span{width:40px;text-align:center;font:600 16px var(--sans)}
 .qty b{width:36px;text-align:center;color:var(--lima);font-size:20px;font-weight:400}
 /* drawer */
-.drawer{background:var(--osso);color:var(--carvao);padding:40px 36px;position:relative;border-left:1px solid #000}
+.drawer{background:#FFCD1F;color:#1B1716;padding:40px 36px;position:relative}
 .drawer h2{font:italic 500 42px var(--disp);letter-spacing:-.02em;display:flex;justify-content:space-between;align-items:baseline}
 .drawer h2 small{font:600 12px var(--sans);font-style:normal;letter-spacing:.18em;opacity:.55}
 .ci{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:20px 0;border-bottom:1px solid rgba(15,17,14,.14)}
@@ -151,12 +158,12 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .field{margin-top:18px}
 .field label{display:block;font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-bottom:8px}
 .field .in{border:1px solid rgba(15,17,14,.25);padding:14px;font:400 15px var(--sans);background:#fff}
-.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--carvao)}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid #1B1716;background:#fff}
 .seg div{padding:13px;text-align:center;font:600 13px var(--sans);letter-spacing:.08em;text-transform:uppercase}
-.seg div.on{background:var(--carvao);color:var(--lima)}
+.seg div.on{background:#1B1716;color:#fff}
 .tot{display:flex;justify-content:space-between;font:500 15px var(--sans);padding:6px 0}
-.tot.big{font:500 30px var(--disp);padding-top:14px;border-top:2px solid var(--carvao);margin-top:10px}
-.wa{display:flex;justify-content:space-between;align-items:center;background:var(--carvao);color:var(--lima);padding:22px 24px;font:700 15px var(--sans);text-transform:uppercase;letter-spacing:.04em;margin-top:24px}
+.tot.big{font:500 30px var(--disp);padding-top:14px;border-top:2px solid #1B1716;margin-top:10px}
+.wa{display:flex;justify-content:space-between;align-items:center;background:#D7192D;color:#fff;padding:22px 24px;font:700 15px var(--sans);text-transform:uppercase;letter-spacing:.04em;margin-top:24px}
 /* MOBILE */
 .mobiles{display:flex;gap:40px;align-items:flex-start}
 .phone{width:390px;height:844px;background:var(--carvao);position:relative;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.45);border-radius:0}
@@ -164,7 +171,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .phone .logo{font-size:24px}
 .burgermenu{width:44px;height:44px;border:1px solid var(--linha);display:grid;place-items:center;gap:0}
 .phone .giant{font-size:150px;top:230px}
-.phone .stage{width:300px;transform:translateX(-50%) scale(.72);transform-origin:50% 0;top:40px}
+.phone .stage{width:440px;transform:translateX(-50%) scale(.72);transform-origin:50% 0;top:40px}
 .phone .hero-copy{left:20px;right:20px;bottom:24px;width:auto}
 .phone .hero-copy h1{font-size:34px}
 .phone .btn{width:100%;justify-content:space-between}
@@ -173,14 +180,14 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .m-menu h1 em{font-style:italic;color:var(--lima)}
 .m-cats{display:flex;overflow:hidden;margin:24px -20px 8px;padding-left:20px;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
 .m-cats div{padding:14px 16px;font:600 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);white-space:nowrap}
-.m-cats div.on{background:var(--lima);color:#111}
+.m-cats div.on{background:var(--lima);color:#fff}
 .m-item{display:grid;grid-template-columns:1fr 44px;gap:12px;padding:18px 0;border-bottom:1px solid var(--linha)}
 .m-item h3{font:500 22px var(--disp)}
 .m-item p{font:400 13px/1.45 var(--sans);color:var(--cinza);margin:4px 0 8px}
 .m-item .price{font-size:16px}
 .m-item .add{width:44px;height:44px;border:1px solid var(--linha);display:grid;place-items:center;font-size:20px;align-self:center}
-.m-bar{position:absolute;left:12px;right:12px;bottom:12px;background:var(--lima);color:#111;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font:700 14px var(--sans);text-transform:uppercase}
-.sheet{position:absolute;left:0;right:0;bottom:0;top:120px;background:var(--osso);color:var(--carvao);padding:22px 20px}
+.m-bar{position:absolute;left:12px;right:12px;bottom:12px;background:var(--lima);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;font:700 14px var(--sans);text-transform:uppercase}
+.sheet{position:absolute;left:0;right:0;bottom:0;top:120px;background:#FFCD1F;color:#1B1716;padding:22px 20px}
 .sheet .grab{width:48px;height:4px;background:rgba(15,17,14,.25);margin:0 auto 18px}
 .dim-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55)}
 .caption{max-width:390px;font:500 12px var(--sans);color:#b9bdb4;margin-top:10px;letter-spacing:.06em}
@@ -191,7 +198,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 .sw div{display:flex;flex-direction:column;justify-content:flex-end;padding:16px;font:600 12px/1.5 var(--sans)}
 .typespec .a{font:italic 700 120px/.9 var(--disp);font-variation-settings:'SOFT' 100,'WONK' 1;letter-spacing:-.04em}
 .typespec .b{font:400 40px/1.1 var(--disp);margin:10px 0 18px}
-.typespec .c{font:400 16px/1.55 var(--sans);color:#c7cbc2}
+.typespec .c{font:400 16px/1.55 var(--sans);color:var(--cinza)}
 .typespec .lbl{font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--lima);margin:26px 0 8px}
 </style></head><body>
 <!-- Biblioteca de camadas do burger (SVG). Cada <g> é uma camada independente, pensada para cair e empilhar. viewBox de cada camada: 0 0 400 H -->
@@ -234,15 +241,15 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
  <div>
   <div class="eyebrow">Paleta · regra 60–30–10</div>
   <div class="sw">
-   <div style="flex:6;background:#0F110E;border:1px solid #333">Carvão<br>#0F110E · 60%<br><span style="opacity:.6">fundo, respiro</span></div>
-   <div style="flex:3;background:#17332A">Mata<br>#17332A · 30%<br><span style="opacity:.6">faixas, superfícies</span></div>
-   <div style="flex:1.2;background:#D6F23A;color:#111">Lima<br>#D6F23A · 10%<br>CTAs, foco</div>
+   <div style="flex:6;background:#FFFFFF;color:#1B1716;border:1px solid #ddd">Branco<br>#FFFFFF · 60%<br><span style="opacity:.6">fundo, respiro, cardápio</span></div>
+   <div style="flex:3;background:#D7192D;color:#fff">Vermelho ketchup<br>#D7192D · 30%<br><span style="opacity:.75">hero, destaques, marca</span></div>
+   <div style="flex:1.2;background:#FFCD1F;color:#1B1716">Amarelo mostarda<br>#FFCD1F · 10%<br>CTAs, carrinho</div>
   </div>
   <div class="sw" style="height:70px;margin-top:2px">
-   <div style="flex:1;background:#F3F3EE;color:#111">Osso #F3F3EE · texto / carrinho</div>
-   <div style="flex:1;background:#8C9188;color:#111">Cinza #8C9188 · apoio</div>
+   <div style="flex:1;background:#1B1716;color:#fff">Tinta #1B1716 · texto</div>
+   <div style="flex:1;background:#A30F22;color:#fff">Vermelho escuro #A30F22 · profundidade</div>
   </div>
-  <p class="typespec"><span class="c" style="display:block;margin-top:22px;max-width:620px">Sem roxo, bege ou laranja. As cores quentes do site vêm só do próprio burger (pão, carne, queijo). Assim, o produto é a única coisa "quente" na tela, e o verde-lima marca tudo o que é ação: pedir, adicionar, finalizar.</span></p>
+  <p class="typespec"><span class="c" style="display:block;margin-top:22px;max-width:620px">Vermelho ketchup, amarelo mostarda e branco: a paleta clássica de hamburgueria, só que num tom mais "premium". Vermelho fechado e profundo, em vez de um vermelho fast-food, e um branco puro e limpo. O vermelho é o palco do burger. O amarelo marca o que é ação nas áreas vermelhas e o carrinho. No branco, as ações ficam em vermelho. Laranja, roxo e bege continuam fora.</span></p>
  </div>
  <div class="typespec">
   <div class="lbl">Personalidade — Fraunces (variável, eixos SOFT + WONK)</div>
@@ -262,7 +269,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
   <ul><li>Casa</li><li>Cardápio</li><li>História</li><li>Onde estamos</li></ul>
   <div style="display:flex;gap:12px"><div class="cartpill">Pedido <i>0</i></div><div class="btn" style="padding:13px 18px;font-size:13px">Ver cardápio</div></div></div>
  <div class="giant">Ofício</div>
- <div class="stage" data-burger="hero-start"></div>
+ <div class="plate"></div><div class="stage" data-burger="hero-start"></div>
  <div class="shadow"></div>
  <div class="hero-copy"><div class="eyebrow">Desde a primeira chapa</div>
   <h1>Um burger se <em>monta</em> camada por camada.</h1>
@@ -279,20 +286,20 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
  <div class="nav"><div class="logo">Ofício<small>Hamburgueria artesanal</small></div>
   <ul><li>Casa</li><li>Cardápio</li><li>História</li><li>Onde estamos</li></ul>
   <div style="display:flex;gap:12px"><div class="cartpill">Pedido <i>0</i></div><div class="btn" style="padding:13px 18px;font-size:13px">Ver cardápio</div></div></div>
- <div class="giant" style="color:#1b3a2f">Ofício</div>
- <div class="stage" data-burger="hero-full"></div>
+ <div class="giant" style="color:#A30F22">Ofício</div>
+ <div class="plate"></div><div class="stage" data-burger="hero-full"></div>
  <div class="shadow"></div>
- <div class="tag l" style="left:290px;top:250px"><span class="num">07</span><b>Brioche na manteiga</b><small>fermentação de 24h, gergelim tostado</small></div>
- <div class="tag l" style="left:290px;top:470px"><span class="num">04</span><b>Cheddar inglês</b><small>maturado 12 meses, derretido no vapor</small></div>
- <div class="tag l" style="left:290px;top:600px"><span class="num">02</span><b>Alface americana</b><small>de produtor local, colhida no dia</small></div>
- <div class="tag r" style="left:930px;top:360px"><span class="num">06 · 05</span><b>Tomate + bacon</b><small>bacon defumado na casa por 6h</small></div>
- <div class="tag r" style="left:930px;top:520px"><span class="num">03</span><b>Blend 180g</b><small>acém + costela, moído toda manhã</small></div>
+ <div class="tag l" style="left:200px;top:250px"><span class="num">07</span><b>Brioche na manteiga</b><small>fermentação de 24h, gergelim tostado</small></div>
+ <div class="tag l" style="left:200px;top:470px"><span class="num">04</span><b>Cheddar inglês</b><small>maturado 12 meses, derretido no vapor</small></div>
+ <div class="tag r" style="left:1036px;top:640px"><span class="num">02</span><b>Alface americana</b><small>de produtor local, colhida no dia</small></div>
+ <div class="tag r" style="left:1036px;top:360px"><span class="num">06 · 05</span><b>Tomate + bacon</b><small>bacon defumado na casa por 6h</small></div>
+ <div class="tag r" style="left:1036px;top:520px"><span class="num">03</span><b>Blend 180g</b><small>acém + costela, moído toda manhã</small></div>
  <div class="hero-right"><div class="counter">7<span>/7 camadas</span></div>montado em 4 min na chapa</div>
  <div class="hero-copy"><div class="eyebrow">O Clássico do Ofício</div>
   <h1>Pronto. Agora é <em>o seu</em>.</h1>
   <div class="btn">Ir para o cardápio <span class="arr">→</span></div></div>
  <div class="progress"><div class="on">01 Pão</div><div class="on">02 Folhas</div><div class="on">03 Blend</div><div class="on">04 Cheddar</div><div class="on">05 Bacon</div><div class="on">06 Tomate</div><div class="on">07 Coroa</div></div>
- <div class="note" style="right:56px;top:130px">Cada ingrediente cai com um leve quique. A linha da ficha técnica se desenha na hora do pouso. O "OFÍCIO" gigante ao fundo se move mais devagar (parallax) e escurece.</div>
+ <div class="note" style="right:56px;top:130px">Cada ingrediente cai com um leve quique. A linha da ficha técnica se desenha na hora do pouso. O "OFÍCIO" gigante ao fundo se move mais devagar (parallax). O prato branco faz o burger saltar do vermelho.</div>
 </div>
 
 <!-- F3 manifesto + destaques -->
@@ -320,7 +327,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
  <section class="local">
   <div><div class="open">Aberto agora · fecha às 23h</div><h2>Venha comer <em>na chapa</em>.</h2>
    <ul class="hours"><li><span>Segunda</span><span>Fechado</span></li><li><span>Terça a quinta</span><span>18h – 23h</span></li><li class="hoje"><span>Sexta (hoje)</span><span>18h – 00h</span></li><li><span>Sábado</span><span>12h – 00h</span></li><li><span>Domingo</span><span>12h – 22h</span></li></ul></div>
-  <div class="map"><svg viewBox="0 0 720 640" preserveAspectRatio="xMidYMid slice"><g stroke="#2a2f27" stroke-width="2" fill="none"><path d="M0 120 L720 180"/><path d="M0 300 L720 260"/><path d="M0 470 L720 520"/><path d="M140 0 L200 640"/><path d="M380 0 L330 640"/><path d="M560 0 L610 640"/><path d="M0 40 L300 640" stroke-width="8" stroke="#1f241d"/></g><g fill="#17332A"><rect x="420" y="320" width="110" height="140"/><rect x="60" y="170" width="80" height="100"/></g><circle cx="356" cy="282" r="60" fill="rgba(214,242,58,.12)"/><circle cx="356" cy="282" r="12" fill="#D6F23A"/></svg>
+  <div class="map"><svg viewBox="0 0 720 640" preserveAspectRatio="xMidYMid slice"><g stroke="#DCDAD8" stroke-width="2" fill="none"><path d="M0 120 L720 180"/><path d="M0 300 L720 260"/><path d="M0 470 L720 520"/><path d="M140 0 L200 640"/><path d="M380 0 L330 640"/><path d="M560 0 L610 640"/><path d="M0 40 L300 640" stroke-width="8" stroke="#E6E4E2"/></g><g fill="#FFCD1F"><rect x="420" y="320" width="110" height="140"/><rect x="60" y="170" width="80" height="100"/></g><circle cx="356" cy="282" r="60" fill="rgba(215,25,45,.14)"/><circle cx="356" cy="282" r="12" fill="#D7192D"/></svg>
    <div class="addr">Rua das Brasas, 180<br>Vila Fictícia — São Paulo<small>ENDEREÇO PROVISÓRIO · mapa ilustrado (sem API)</small></div></div>
  </section>
  <section class="insta">
@@ -341,7 +348,7 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
 <!-- F5 cardápio -->
 <div class="board-title"><b>05</b> — Cardápio · desktop · hover no item + carrinho aberto</div>
 <div class="frame">
- <div class="nav"><div class="logo">Ofício<small>Hamburgueria artesanal</small></div>
+ <div class="nav" style="right:460px"><div class="logo">Ofício<small>Hamburgueria artesanal</small></div>
   <ul><li>Casa</li><li style="opacity:1;color:var(--lima)">Cardápio</li><li>História</li><li>Onde estamos</li></ul>
   <div></div></div>
  <div class="cardapio">
@@ -365,9 +372,9 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
    <div class="ci"><h4>Fritas rústicas</h4><span class="p">R$ 18,00</span><div class="ctrl"><div class="q"><span>–</span><span>1</span><span>+</span></div><span class="rm">remover</span></div></div>
    <div class="field"><label>Como você quer receber?</label><div class="seg"><div class="on">Entrega</div><div>Retirada</div></div></div>
    <div class="field"><label>Seu nome</label><div class="in">Marina</div></div>
-   <div class="field"><label>Endereço</label><div class="in" style="opacity:.5">Rua, número, bairro</div></div>
+   <div class="field"><label>Endereço</label><div class="in" style="color:#8a8580">Rua, número, bairro</div></div>
    <div class="field"><label>Pagamento na entrega</label><div class="seg" style="grid-template-columns:1fr 1fr 1fr"><div class="on">Pix</div><div>Cartão</div><div>Dinheiro</div></div></div>
-   <div class="field"><label>Observações</label><div class="in" style="opacity:.5">Ex.: sem cebola, ponto da carne…</div></div>
+   <div class="field"><label>Observações</label><div class="in" style="color:#8a8580">Ex.: sem cebola, ponto da carne…</div></div>
    <div style="margin-top:26px"><div class="tot"><span>Subtotal</span><span>R$ 102,00</span></div><div class="tot"><span>Entrega</span><span>a combinar</span></div><div class="tot big"><span>Total</span><span>R$ 102,00</span></div></div>
    <div class="wa">Enviar pedido no WhatsApp <span>→</span></div>
    <p style="font:400 12px/1.5 var(--sans);opacity:.6;margin-top:12px">Abre o WhatsApp com o pedido já escrito. O carrinho fica salvo neste navegador.</p>
@@ -381,14 +388,14 @@ body{background:#2a2c28;font-family:var(--sans);color:var(--osso);padding:48px}
  <div><div class="phone hero" style="height:844px">
   <div class="nav"><div class="logo">Ofício</div><div class="burgermenu">≡</div></div>
   <div class="giant">Ofício</div>
-  <div class="stage" data-burger="hero-full"></div>
+  <div class="plate"></div><div class="stage" data-burger="hero-full"></div>
   <div class="hero-copy"><div class="eyebrow">Camada por camada</div><h1>Pronto. Agora é <em>o seu</em>.</h1><div class="btn">Ir para o cardápio <span class="arr">→</span></div></div>
  </div><div class="caption">Mesma queda no scroll, com menos distância. Sem as linhas da ficha técnica: elas viram um texto que muda embaixo.</div></div>
  <div><div class="phone">
   <div class="nav"><div class="logo">Ofício</div><div class="burgermenu">≡</div></div>
   <div class="m-menu"><h1>Cardápio<br><em>da chapa.</em></h1>
    <div class="m-cats"><div class="on">Burgers</div><div>Acompanhamentos</div><div>Bebidas</div><div>Sobremesas</div></div>
-   <div class="m-item"><div><h3>O Clássico</h3><p>Blend 180g, cheddar inglês, alface, tomate, bacon…</p><span class="price">R$ 42</span></div><span class="add" style="background:var(--lima);color:#111;border-color:var(--lima)">2</span></div>
+   <div class="m-item"><div><h3>O Clássico</h3><p>Blend 180g, cheddar inglês, alface, tomate, bacon…</p><span class="price">R$ 42</span></div><span class="add" style="background:var(--lima);color:#fff;border-color:var(--lima)">2</span></div>
    <div class="m-item"><div><h3>Duplo Brasa</h3><p>Dois smash de 100g, crosta caramelizada…</p><span class="price">R$ 46</span></div><span class="add">+</span></div>
    <div class="m-item"><div><h3>Verde Ofício</h3><p>Blend 180g, queijo minas curado, rúcula…</p><span class="price">R$ 44</span></div><span class="add">+</span></div>
   </div>
