@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ofício — Hamburgueria Artesanal</title>
+<meta name="description" content="Ofício, hamburgueria artesanal: pão de fermentação lenta, blend moído no dia e cheddar maturado. Monte seu pedido e envie pelo WhatsApp.">
+<meta name="theme-color" content="#D7192D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/paobase.webp">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+</head>
+<body class="page-home">
+
+<a class="sr-only" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="site-header" data-header>
+  <a class="logo" href="index.html" aria-label="Ofício, página inicial">
+    <span class="logo__word">Ofício</span>
+    <span class="logo__sub">Hamburgueria artesanal</span>
+  </a>
+  <nav class="nav" aria-label="Principal">
+    <a href="index.html" aria-current="page">Casa</a>
+    <a href="cardapio.html">Cardápio</a>
+    <a href="#historia">História</a>
+    <a href="#onde-estamos">Onde estamos</a>
+  </nav>
+  <div class="header-actions">
+    <button class="cartpill" type="button" data-cart-open aria-label="Abrir pedido">
+      Pedido <span class="cartpill__n" data-cart-count>0</span>
+    </button>
+    <a class="btn btn--sm" href="cardapio.html">Ver cardápio</a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle><span></span></button>
+  </div>
+</header>
+
+<nav class="mobile-menu" aria-label="Menu móvel" data-mobile-menu>
+  <a href="index.html">Casa</a>
+  <a href="cardapio.html">Cardápio</a>
+  <a href="#historia">História</a>
+  <a href="#onde-estamos">Onde estamos</a>
+  <a class="btn" href="cardapio.html">Fazer meu pedido <span class="btn__arr" aria-hidden="true">→</span></a>
+</nav>
+
+<main id="conteudo">
+
+  <!-- HERO: os ingredientes caem e montam o burger conforme o scroll -->
+  <section class="hero on-red" data-hero aria-label="O Clássico do Ofício, montado camada por camada">
+    <div class="hero__giant" aria-hidden="true" data-giant>Ofício</div>
+
+    <div class="stage" data-stage>
+      <div class="plate" data-plate></div>
+      <!-- de baixo para cima; posições finais em px no palco de 440×760 -->
+      <img class="ing" data-ing="0" src="assets/img/paobase.webp" alt="" width="400" height="107" style="left:20px;top:583px;width:400px">
+      <img class="ing" data-ing="1" src="assets/img/alface.webp"  alt="" width="430" height="243" style="left:5px;top:399px;width:430px">
+      <img class="ing" data-ing="2" src="assets/img/blend.webp"   alt="" width="390" height="208" style="left:25px;top:408px;width:390px">
+      <img class="ing" data-ing="3" src="assets/img/cheddar.webp" alt="" width="420" height="249" style="left:10px;top:361px;width:420px">
+      <img class="ing" data-ing="4" src="assets/img/bacon.webp"   alt="" width="410" height="111" style="left:15px;top:379px;width:410px">
+      <img class="ing" data-ing="5" src="assets/img/tomate.webp"  alt="" width="400" height="95"  style="left:20px;top:359px;width:400px">
+      <img class="ing" data-ing="6" src="assets/img/paotopo.webp" alt="" width="400" height="200" style="left:20px;top:222px;width:400px">
+
+      <!-- ficha técnica -->
+      <div class="tag tag--l" data-tag="6" style="left:-300px;top:270px;--len:200px"><span class="tag__num">07</span><b>Brioche na manteiga</b><small>fermentação de 24h, gergelim tostado</small><i class="tag__line"></i><i class="tag__dot"></i></div>
+      <div class="tag tag--r" data-tag="3" style="left:536px;top:452px;--len:200px"><span class="tag__num">04</span><b>Cheddar inglês</b><small>maturado 12 meses, derretido no vapor</small><i class="tag__line"></i><i class="tag__dot"></i></div>
+      <div class="tag tag--r" data-tag="5" style="left:536px;top:362px;--len:170px"><span class="tag__num">06 · 05</span><b>Tomate + bacon</b><small>bacon defumado na casa por 6h</small><i class="tag__line"></i><i class="tag__dot"></i></div>
+      <div class="tag tag--r" data-tag="2" style="left:536px;top:540px;--len:130px"><span class="tag__num">03</span><b>Blend 180g</b><small>acém + costela, moído toda manhã</small><i class="tag__line"></i><i class="tag__dot"></i></div>
+      <div class="tag tag--r" data-tag="1" style="left:536px;top:626px;--len:112px"><span class="tag__num">02</span><b>Alface americana</b><small>de produtor local, colhida no dia</small><i class="tag__line"></i><i class="tag__dot"></i></div>
+    </div>
+
+    <p class="hero__caption" data-caption aria-hidden="true">Pão de baixo, tostado na manteiga</p>
+
+    <div class="hero__copy">
+      <div class="hero__state hero__state--a">
+        <p class="eyebrow">Desde a primeira chapa</p>
+        <h1>Um burger se <em>monta</em> camada por camada.</h1>
+        <p class="hero__lead">Role a página e veja o seu ser montado. Pão de fermentação lenta, blend moído no dia, cheddar maturado.</p>
+        <a class="btn" href="cardapio.html">Montar meu pedido <span class="btn__arr" aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero__state hero__state--b" aria-hidden="true">
+        <p class="eyebrow">O Clássico do Ofício</p>
+        <p class="h1" role="heading" aria-level="2">Pronto. Agora é <em>o seu</em>.</p>
+        <a class="btn" href="cardapio.html" tabindex="-1">Ir para o cardápio <span class="btn__arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <ol class="hero__progress" aria-hidden="true" data-progress>
+      <li class="on">01 Pão</li><li>02 Folhas</li><li>03 Blend</li><li>04 Cheddar</li><li>05 Bacon</li><li>06 Tomate</li><li>07 Coroa</li>
+    </ol>
+    <div class="hero__count" aria-hidden="true"><strong data-counter>1<span>/7 camadas</span></strong>montado em 4 min na chapa</div>
+    <p class="hero__hint" aria-hidden="true">Role para montar ↓</p>
+  </section>
+
+  <!-- HISTÓRIA -->
+  <section class="manifesto on-white" id="historia" aria-labelledby="historia-t">
+    <div class="manifesto__side">
+      <p class="eyebrow" id="historia-t">Nossa história</p>
+      <p>Começamos com uma chapa de ferro e uma regra: nada sai da cozinha que a gente não serviria na própria mesa.</p>
+    </div>
+    <p class="manifesto__text" data-words>Não temos pressa. O pão fermenta de um dia para o outro, o bacon defuma a manhã inteira e o blend é moído antes de abrir a porta. <em>Isso é ofício.</em> O resto é só lanche rápido — e lanche rápido tem em todo lugar.</p>
+  </section>
+
+  <!-- DESTAQUES -->
+  <section class="destaques on-red" aria-labelledby="destaques-t" data-destaques>
+    <div class="destaques__head">
+      <h2 id="destaques-t">Os da <em>casa</em></h2>
+      <a class="btn btn--ghost" href="cardapio.html">Cardápio completo <span class="btn__arr" aria-hidden="true">→</span></a>
+    </div>
+    <div class="track-wrap">
+      <ul class="track" data-track>
+        <li class="dish">
+          <span class="dish__no">01 / 06</span>
+          <div class="dish__pic"><img src="assets/img/full.webp" alt="Foto do burger O Clássico" loading="lazy" width="246" height="245"></div>
+          <h3>O Clássico</h3>
+          <p>Blend 180g, cheddar inglês, alface, tomate, bacon da casa e maionese de alho assado no brioche.</p>
+          <div class="dish__row"><span class="price">R$ 42,00</span><button class="addbtn" type="button" data-add="classico" aria-label="Adicionar O Clássico ao pedido">+</button></div>
+        </li>
+        <li class="dish">
+          <span class="dish__no">02 / 06</span>
+          <div class="dish__pic"><img src="assets/img/full.webp" alt="Foto ilustrativa do burger Duplo Brasa" loading="lazy" width="246" height="245" style="transform:scaleX(-1)"></div>
+          <h3>Duplo Brasa</h3>
+          <p>Dois smash de 100g com crosta caramelizada, cheddar em dobro e cebola na chapa.</p>
+          <div class="dish__row"><span class="price">R$ 46,00</span><button class="addbtn" type="button" data-add="duplo-brasa" aria-label="Adicionar Duplo Brasa ao pedido">+</button></div>
+        </li>
+        <li class="dish">
+          <span class="dish__no">03 / 06</span>
+          <div class="dish__pic"><img src="assets/img/full.webp" alt="Foto ilustrativa do burger Verde Ofício" loading="lazy" width="246" height="245"></div>
+          <h3>Verde Ofício</h3>
+          <p>Blend 180g, queijo minas curado, rúcula, pesto de manjericão e tomate confit.</p>
+          <div class="dish__row"><span class="price">R$ 44,00</span><button class="addbtn" type="button" data-add="verde-oficio" aria-label="Adicionar Verde Ofício ao pedido">+</button></div>
+        </li>
+      </ul>
+    </div>
+    <div class="destaques__bar" aria-hidden="true"><span data-bar></span></div>
+  </section>
+
+  <!-- ONDE ESTAMOS -->
+  <section class="local on-white" id="onde-estamos" aria-labelledby="local-t">
+    <div class="local__info">
+      <p class="status" data-status>Consultando horário…</p>
+      <h2 id="local-t">Venha comer <em>na chapa</em>.</h2>
+      <ul class="hours" data-hours></ul>
+    </div>
+    <div class="map" aria-label="Mapa ilustrativo">
+      <svg viewBox="0 0 720 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g stroke="#DCDAD8" stroke-width="2" fill="none">
+          <path d="M0 120 L720 180"/><path d="M0 300 L720 260"/><path d="M0 470 L720 520"/>
+          <path d="M140 0 L200 640"/><path d="M380 0 L330 640"/><path d="M560 0 L610 640"/>
+          <path d="M0 40 L300 640" stroke-width="10" stroke="#E6E4E2"/>
+        </g>
+        <g fill="#FFCD1F"><rect x="420" y="320" width="110" height="140"/><rect x="60" y="170" width="80" height="100"/><rect x="600" y="40" width="90" height="70"/></g>
+        <circle class="map__pin" cx="356" cy="282" r="44" fill="rgba(215,25,45,.25)"/>
+        <circle cx="356" cy="282" r="12" fill="#D7192D"/>
+      </svg>
+      <p class="map__addr"><span data-endereco>Rua das Brasas, 180</span><br><span data-bairro>Vila Fictícia — São Paulo</span><small>Endereço provisório · mapa ilustrativo</small></p>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="insta on-white" aria-labelledby="insta-t">
+    <h2 class="sr-only" id="insta-t">Instagram</h2>
+    <a class="marquee" data-marquee data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener" aria-label="Abrir nosso Instagram (perfil provisório)">
+      <span>@oficio.burger</span><span aria-hidden="true">@oficio.burger</span><span aria-hidden="true">@oficio.burger</span><span aria-hidden="true">@oficio.burger</span>
+    </a>
+    <div class="insta__grid" aria-label="Ingredientes do Ofício">
+      <a data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener"><img src="assets/img/paotopo.webp" alt="" loading="lazy"><span class="sr-only">Instagram</span></a>
+      <a data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener"><img src="assets/img/blend.webp" alt="" loading="lazy"><span class="sr-only">Instagram</span></a>
+      <a data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener"><img src="assets/img/tomate.webp" alt="" loading="lazy"><span class="sr-only">Instagram</span></a>
+      <a data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener"><img src="assets/img/cheddar.webp" alt="" loading="lazy"><span class="sr-only">Instagram</span></a>
+      <a data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener"><img src="assets/img/alface.webp" alt="" loading="lazy"><span class="sr-only">Instagram</span></a>
+      <a data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener"><img src="assets/img/bacon.webp" alt="" loading="lazy"><span class="sr-only">Instagram</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contato">
+  <div class="footer__cols">
+    <div>
+      <p class="footer__cta">Fome não espera.<br><em>Peça agora.</em></p>
+      <a class="btn" href="cardapio.html">Ir para o cardápio <span class="btn__arr" aria-hidden="true">→</span></a>
+    </div>
+    <div><h3>Contato</h3><a data-tel href="tel:+5511900000000">(11) 90000-0000</a><br><a data-email href="mailto:ola@oficio.burger">ola@oficio.burger</a><br><span class="footer__note">dados provisórios</span></div>
+    <div><h3>Navegue</h3><a href="cardapio.html">Cardápio</a><br><a href="#historia">História</a><br><a href="#onde-estamos">Onde estamos</a></div>
+    <div><h3>Social</h3><a data-insta href="https://instagram.com/oficio.burger" target="_blank" rel="noopener">Instagram</a><br><a data-wa href="https://wa.me/5511900000000" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+  <p class="footer__word" aria-hidden="true" data-footword>Ofício</p>
+  <div class="footer__legal"><span>© 2026 Ofício — hamburgueria fictícia. Imagens geradas por IA.</span><span>Feito na chapa</span></div>
+</footer>
+
+<!-- Barra de pedido -->
+<button class="orderbar" type="button" data-cart-open>
+  <span>Ver pedido · <span data-cart-count>0</span></span><span><span data-cart-total>R$ 0,00</span> →</span>
+</button>
+
+<!-- CARRINHO -->
+<div class="cart-backdrop" data-cart-backdrop></div>
+<aside class="cart cart--overlay" data-cart role="dialog" aria-modal="true" aria-labelledby="cart-t" aria-hidden="true">
+  <div class="cart__head">
+    <h2 id="cart-t">Seu pedido</h2>
+    <span class="cart__count"><span data-cart-count>0</span> itens</span>
+    <button class="cart__close" type="button" data-cart-close aria-label="Fechar pedido">×</button>
+  </div>
+  <div class="cart__empty" data-cart-empty>
+    <p>Seu pedido ainda está vazio. Que tal começar pelo Clássico?</p>
+    <a class="btn" href="cardapio.html">Ver cardápio <span class="btn__arr" aria-hidden="true">→</span></a>
+  </div>
+  <ul data-cart-list></ul>
+  <form data-cart-form novalidate hidden>
+    <fieldset class="field"><legend>Como você quer receber?</legend>
+      <div class="seg"><label><input type="radio" name="modo" value="entrega" checked><span>Entrega</span></label><label><input type="radio" name="modo" value="retirada"><span>Retirada</span></label></div>
+    </fieldset>
+    <div class="field"><label for="c-nome">Seu nome</label><input id="c-nome" name="nome" type="text" autocomplete="name" required></div>
+    <div class="field" data-endereco><label for="c-end">Endereço</label><input id="c-end" name="endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro"></div>
+    <fieldset class="field"><legend data-pag-label>Pagamento na entrega</legend>
+      <div class="seg"><label><input type="radio" name="pagamento" value="Pix" checked><span>Pix</span></label><label><input type="radio" name="pagamento" value="Cartão"><span>Cartão</span></label><label><input type="radio" name="pagamento" value="Dinheiro"><span>Dinheiro</span></label></div>
+    </fieldset>
+    <div class="field"><label for="c-obs">Observações</label><textarea id="c-obs" name="obs" rows="2" placeholder="Ex.: sem cebola, ponto da carne…"></textarea></div>
+    <div class="totals"><div><span>Subtotal</span><span data-cart-total>R$ 0,00</span></div><div><span>Entrega</span><span>a combinar</span></div><div class="grand"><span>Total</span><span data-cart-total>R$ 0,00</span></div></div>
+    <button class="cart__send" type="submit">Enviar pedido no WhatsApp <span aria-hidden="true">→</span></button>
+    <p class="cart__error" role="alert" data-cart-error></p>
+    <p class="cart__note">Abre o WhatsApp com o pedido já escrito. O carrinho fica salvo neste navegador.</p>
+  </form>
+</aside>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/common.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cardápio — Ofício Hamburgueria</title>
+<meta name="description" content="Cardápio do Ofício: burgers artesanais, acompanhamentos, bebidas e sobremesas. Monte o pedido e envie pelo WhatsApp.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.replace('no-js','js')</script>
+</head>
+<body class="page-cardapio">
+
+<a class="sr-only" href="#cardapio">Pular para o cardápio</a>
+
+<header class="site-header site-header--solid">
+  <a class="logo" href="index.html" aria-label="Ofício, página inicial">
+    <span class="logo__word">Ofício</span>
+    <span class="logo__sub">Hamburgueria artesanal</span>
+  </a>
+  <nav class="nav" aria-label="Principal">
+    <a href="index.html">Casa</a>
+    <a href="cardapio.html" aria-current="page">Cardápio</a>
+    <a href="index.html#historia">História</a>
+    <a href="index.html#onde-estamos">Onde estamos</a>
+  </nav>
+  <div class="header-actions">
+    <button class="cartpill" type="button" data-cart-open aria-label="Abrir pedido" style="color:var(--ink)">
+      Pedido <span class="cartpill__n" data-cart-count>0</span>
+    </button>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle><span></span></button>
+  </div>
+</header>
+
+<nav class="mobile-menu" aria-label="Menu móvel" data-mobile-menu>
+  <a href="index.html">Casa</a>
+  <a href="cardapio.html">Cardápio</a>
+  <a href="index.html#historia">História</a>
+  <a href="index.html#onde-estamos">Onde estamos</a>
+</nav>
+
+<div class="cardapio">
+  <main class="menu" id="cardapio">
+    <div class="menu__head">
+      <h1>Cardápio<br><em class="wonk">da chapa.</em></h1>
+      <p>Escolha, ajuste a quantidade e finalize pelo WhatsApp. Seu pedido chega montado, do jeito que você viu na página inicial.</p>
+    </div>
+    <nav class="cats" aria-label="Categorias" data-cats></nav>
+    <div data-menu></div>
+    <noscript><p>Ative o JavaScript para ver o cardápio e montar seu pedido.</p></noscript>
+  </main>
+
+  <aside class="cart cart--docked" data-cart role="dialog" aria-labelledby="cart-t">
+    <div class="cart__head">
+      <h2 id="cart-t">Seu pedido</h2>
+      <span class="cart__count"><span data-cart-count>0</span> itens</span>
+      <button class="cart__close" type="button" data-cart-close aria-label="Fechar pedido">×</button>
+    </div>
+    <div class="cart__empty" data-cart-empty>
+      <p>Seu pedido ainda está vazio. Toque no <strong>+</strong> ao lado de um item para começar.</p>
+    </div>
+    <ul data-cart-list></ul>
+    <form data-cart-form novalidate hidden>
+      <fieldset class="field"><legend>Como você quer receber?</legend>
+        <div class="seg"><label><input type="radio" name="modo" value="entrega" checked><span>Entrega</span></label><label><input type="radio" name="modo" value="retirada"><span>Retirada</span></label></div>
+      </fieldset>
+      <div class="field"><label for="c-nome">Seu nome</label><input id="c-nome" name="nome" type="text" autocomplete="name" required></div>
+      <div class="field" data-endereco><label for="c-end">Endereço</label><input id="c-end" name="endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro"></div>
+      <fieldset class="field"><legend data-pag-label>Pagamento na entrega</legend>
+        <div class="seg"><label><input type="radio" name="pagamento" value="Pix" checked><span>Pix</span></label><label><input type="radio" name="pagamento" value="Cartão"><span>Cartão</span></label><label><input type="radio" name="pagamento" value="Dinheiro"><span>Dinheiro</span></label></div>
+      </fieldset>
+      <div class="field"><label for="c-obs">Observações</label><textarea id="c-obs" name="obs" rows="2" placeholder="Ex.: sem cebola, ponto da carne…"></textarea></div>
+      <div class="totals"><div><span>Subtotal</span><span data-cart-total>R$ 0,00</span></div><div><span>Entrega</span><span>a combinar</span></div><div class="grand"><span>Total</span><span data-cart-total>R$ 0,00</span></div></div>
+      <button class="cart__send" type="submit">Enviar pedido no WhatsApp <span aria-hidden="true">→</span></button>
+      <p class="cart__error" role="alert" data-cart-error></p>
+      <p class="cart__note">Abre o WhatsApp com o pedido já escrito. O carrinho fica salvo neste navegador.</p>
+    </form>
+  </aside>
+</div>
+
+<button class="orderbar orderbar--cardapio" type="button" data-cart-open>
+  <span>Ver pedido · <span data-cart-count>0</span></span><span><span data-cart-total>R$ 0,00</span> →</span>
+</button>
+<div class="cart-backdrop" data-cart-backdrop></div>
+
+<img class="follower" src="assets/img/full.webp" alt="" aria-hidden="true" data-follower>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/cardapio.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/common.js"></script>
+</body>
+</html>
